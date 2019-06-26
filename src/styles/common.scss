@@ -21,3 +21,11 @@ $text-muted: $gray;
   font-weight: 700;
   font-family: "Rubik", sans-serif;
 }
+
+.navbar-menu .navbar-item {
+  color: $black;
+  margin-left: 1.5rem;
+  &:hover {
+    color: lighten($black, 20%);
+  }
+}
