@@ -3,6 +3,7 @@ templateKey: "blog-post"
 title: "【GatsbyJS】コードブロックでシンタックスをハイライト表示する"
 date: 2019-06-27T15:04:10.000Z
 featuredpost: false
+featuredimage: /img/gatsby-image.png
 description: GatsbyJSで作ったブログの、マークダウンで書いた記事内のコードブロックは、シンタックスに色がついていた方が分かりやすいよね。
 
 tags:
@@ -11,6 +12,8 @@ tags:
   - GatsbyJS
   - Tips
 ---
+
+![gatsby-image](/img/gatsby-image.png)
 
 ## 1. プラグインをインストール
 
