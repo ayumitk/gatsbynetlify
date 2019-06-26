@@ -3,6 +3,7 @@ templateKey: "blog-post"
 title: "【React】Create-react-appで、AirbnbのESLintを使う"
 date: 2019-06-26T15:04:10.000Z
 featuredpost: false
+featuredimage: /img/react-image.png
 description: Create-react-app でReactアプリケーションを作る時に、AirbnbのESlintも入れたい時のメモ。
 
 tags:
@@ -12,6 +13,8 @@ tags:
   - Airbnb
   - Tips
 ---
+
+![react-image](/img/react-image.png)
 
 ## 1. `create-react-app` でプロジェクトを作る
 

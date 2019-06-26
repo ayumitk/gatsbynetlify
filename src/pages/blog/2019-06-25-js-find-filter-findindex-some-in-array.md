@@ -3,6 +3,7 @@ templateKey: "blog-post"
 title: "【JS】配列の中から条件に合う要素を探す"
 date: 2019-06-25T15:04:10.000Z
 featuredpost: false
+featuredimage: /img/js-image.png
 description: 状況によって使い分ける find(), filter(), findIndex(), some() メソッドについてのメモ。
 
 tags:
@@ -10,6 +11,8 @@ tags:
   - 配列(Array)
   - Tips
 ---
+
+![js-image](/img/js-image.png)
 
 配列の中から特定の要素を探すとき。
 
