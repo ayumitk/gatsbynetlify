@@ -16,6 +16,7 @@ export const BlogPostTemplate = ({
   tags,
   title,
   helmet,
+  date,
 }) => {
   const PostContent = contentComponent || Content
 
@@ -30,16 +31,19 @@ export const BlogPostTemplate = ({
             <h1 className="title">
               {title}
             </h1>
-            <p className="description">{description}</p>
-            {tags && tags.length ? (
-              <ul className="tag-list">
-                {tags.map(tag => (
-                  <li className="tag-item" key={tag + `tag`}>
-                    <Link className="tag-link" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                  </li>
-                ))}
-              </ul>
-            ) : null}
+            <p className="text-muted">{description}</p>
+            <div className="d-sm-flex flex-wrap">
+              {tags && tags.length ? (
+                <ul className="tag-list">
+                  {tags.map(tag => (
+                    <li className="tag-item" key={tag + `tag`}>
+                      <Link className="tag-link" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+              <p className="text-muted ml-auto">{date}</p>
+            </div>
           </header>
 
           <PostContent content={content} />
@@ -69,6 +73,7 @@ BlogPostTemplate.propTypes = {
   description: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
+  date: PropTypes.string,
 }
 
 const BlogPost = ({ data }) => {
@@ -91,6 +96,7 @@ const BlogPost = ({ data }) => {
         }
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
+        date={post.frontmatter.date}
       />
     </Layout>
   )
