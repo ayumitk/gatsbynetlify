@@ -1,15 +1,6 @@
+@import "valuables";
+
 // Override default variables before the import
-$pink: #ce2573;
-$pink-invert: #fff;
-
-$gray: #7e8890;
-$gray-light: #dcd9d9;
-
-$blue: #486ab7;
-$blue-dark: #374054;
-
-$black: #212529;
-
 $theme-colors: (
   "primary": $pink
 );
