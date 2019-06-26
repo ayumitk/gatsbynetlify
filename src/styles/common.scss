@@ -5,16 +5,13 @@ $theme-colors: (
   "primary": $pink
 );
 
+$text-color: $black;
+
+$link-color: $blue;
+
 // Import Bootstrap and its default variables
 @import "~bootstrap/scss/bootstrap.scss";
 @import url("https://fonts.googleapis.com/css?family=Rubik:700&display=swap");
-
-a {
-  color: $blue;
-  &:hover {
-    color: lighten($blue, 5%);
-  }
-}
 
 .navbar-brand a {
   color: $pink;
