@@ -20,30 +20,44 @@ export const BlogPostTemplate = ({
   const PostContent = contentComponent || Content
 
   return (
-    <section className="section">
+    <section>
       {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+      <div className="container">
+
+        <article>
+
+          <header>
+            <h1 className="title">
               {title}
             </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
+            <p className="description">{description}</p>
             {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <ul className="tag-list">
+                {tags.map(tag => (
+                  <li className="tag-item" key={tag + `tag`}>
+                    <Link className="tag-link" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                  </li>
+                ))}
+              </ul>
             ) : null}
-          </div>
-        </div>
+          </header>
+
+          <PostContent content={content} />
+
+          <footer>
+            {tags && tags.length ? (
+              <ul className="tag-list" style={{ marginTop: `4rem` }}>
+                {tags.map(tag => (
+                  <li className="tag-item" key={tag + `tag`}>
+                    <Link className="tag-link" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </footer>
+
+        </article>
+
       </div>
     </section>
   )

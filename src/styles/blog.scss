@@ -1,3 +1,35 @@
+.description {
+  color: #7e8890;
+}
+
+hr {
+  margin: 3rem 0;
+}
+
+article header {
+  border-bottom: solid 1px whitesmoke;
+  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.tag-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* --------------------------------------------------
+  Code block
+----------------------------------------------------*/
+code {
+  background: #e8edf1;
+  display: inline-block;
+  padding: 0.15rem 0.35rem;
+}
+
+pre code {
+  background: transparent;
+}
+
 /* gatsby-remark-code-titles */
 .gatsby-code-title {
   background: #4b5461fd;
