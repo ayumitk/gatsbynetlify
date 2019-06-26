@@ -35,11 +35,6 @@ pre[class*="language-"] {
   hyphens: none;
 }
 
-/* code[class*="language-javascript"], */
-pre[class*="language-javascript"] {
-  color: #5ccfe6;
-}
-
 /* Code blocks */
 pre[class*="language-"] {
   padding: 1em;
@@ -102,7 +97,7 @@ pre[class*="language-"] {
 .language-css .token.string,
 .style .token.string,
 .token.variable {
-  color: #f8f8f2;
+  color: #f28779;
 }
 
 .token.atrule,
@@ -113,7 +108,7 @@ pre[class*="language-"] {
 }
 
 .token.keyword {
-  color: #8be9fd;
+  color: #ffa759;
 }
 
 .token.regex,
