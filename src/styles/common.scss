@@ -1,7 +1,25 @@
 // Override default variables before the import
+$pink: #ce2573;
+$pink-invert: #fff;
+
+$gray: #7e8890;
+$gray-light: #dcd9d9;
+
+$blue-dark: #374054;
+
+$black: #212529;
+
 $theme-colors: (
-  "primary": #ce2573
+  "primary": $pink
 );
 
 // Import Bootstrap and its default variables
 @import "~bootstrap/scss/bootstrap.scss";
+@import url("https://fonts.googleapis.com/css?family=Rubik:700&display=swap");
+
+.navbar-brand {
+  color: $pink;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Rubik", sans-serif;
+}
