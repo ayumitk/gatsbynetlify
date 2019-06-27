@@ -21,7 +21,7 @@ class BlogRoll extends React.Component {
                 <div className="card-body">
                   <header>
                     {post.frontmatter.featuredimage ? (
-                      <div className="featured-thumbnail mb-2">
+                      <Link to={post.fields.slug} className="thumbnail-image">
                         <PreviewCompatibleImage
                           imageInfo={{
                             image: post.frontmatter.featuredimage,
@@ -30,13 +30,10 @@ class BlogRoll extends React.Component {
                             }`,
                           }}
                         />
-                      </div>
+                      </Link>
                     ) : null}
                     <p className="post-meta mb-1">
-                      <Link
-                        className="title has-text-primary is-size-4"
-                        to={post.fields.slug}
-                      >
+                      <Link to={post.fields.slug}>
                         {post.frontmatter.title}
                       </Link>
                     </p>
