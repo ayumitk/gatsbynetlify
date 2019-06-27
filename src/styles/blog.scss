@@ -19,8 +19,10 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
+
   .tag-item {
     margin-right: 0.25rem;
+
     .tag-link {
       display: block;
       background: $gray-light;
@@ -29,6 +31,7 @@
       border-radius: 1rem;
       padding: 0 1rem;
       color: $black;
+
       &:hover {
         background: $pink;
         color: #fff;
@@ -64,4 +67,16 @@ pre code {
   font-weight: 600;
   border-radius: 4px 4px 0 0;
   display: table;
+}
+
+.thumbnail-image {
+  display: block;
+  margin-bottom: 0.5rem;
+  line-height: 0;
+  overflow: hidden;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
