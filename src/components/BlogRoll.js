@@ -12,7 +12,7 @@ class BlogRoll extends React.Component {
       <div className="row">
         {posts
           && posts.map(({ node: post }) => (
-            <div className="col-sm-3" key={post.id}>
+            <div className="col-sm-4 col-lg-3" key={post.id}>
               <article
                 className={`card ${
                   post.frontmatter.featuredpost ? 'is-featured' : ''
