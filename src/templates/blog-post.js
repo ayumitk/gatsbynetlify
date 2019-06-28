@@ -1,13 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
-import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { kebabCase } from 'lodash';
+import Helmet from 'react-helmet';
+import { graphql, Link } from 'gatsby';
+import Layout from '../components/Layout';
+import Content, { HTMLContent } from '../components/Content';
 
-import "../styles/prism.scss";
-import "../styles/blog.scss";
+
+import '../styles/prism.scss';
+import '../styles/blog.scss';
+
 
 export const BlogPostTemplate = ({
   content,
@@ -18,7 +20,7 @@ export const BlogPostTemplate = ({
   helmet,
   date,
 }) => {
-  const PostContent = contentComponent || Content
+  const PostContent = contentComponent || Content;
 
   return (
     <section className="blog-post">
@@ -36,7 +38,7 @@ export const BlogPostTemplate = ({
               {tags && tags.length ? (
                 <ul className="tag-list">
                   {tags.map(tag => (
-                    <li className="tag-item" key={tag + `tag`}>
+                    <li className="tag-item" key={`${tag}tag`}>
                       <Link className="tag-link" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
                     </li>
                   ))}
@@ -50,9 +52,9 @@ export const BlogPostTemplate = ({
 
           <footer>
             {tags && tags.length ? (
-              <ul className="tag-list" style={{ marginTop: `4rem` }}>
+              <ul className="tag-list" style={{ marginTop: '4rem' }}>
                 {tags.map(tag => (
-                  <li className="tag-item" key={tag + `tag`}>
+                  <li className="tag-item" key={`${tag}tag`}>
                     <Link className="tag-link" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
                   </li>
                 ))}
@@ -60,12 +62,14 @@ export const BlogPostTemplate = ({
             ) : null}
           </footer>
 
+          <JustComments />
+
         </article>
 
       </div>
     </section>
-  )
-}
+  );
+};
 
 BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
@@ -74,10 +78,10 @@ BlogPostTemplate.propTypes = {
   title: PropTypes.string,
   helmet: PropTypes.object,
   date: PropTypes.string,
-}
+};
 
 const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: post } = data;
 
   return (
     <Layout>
@@ -85,7 +89,7 @@ const BlogPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        helmet={
+        helmet={(
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
             <meta
@@ -93,22 +97,45 @@ const BlogPost = ({ data }) => {
               content={`${post.frontmatter.description}`}
             />
           </Helmet>
-        }
+)}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
         date={post.frontmatter.date}
+        id={post.id}
       />
     </Layout>
-  )
+  );
+};
+
+class JustComments extends React.Component {
+  constructor(...args) {
+    super(...args)
+    this.ref = React.createRef()
+  }
+  render() {
+    return (
+      <div
+        ref={this.ref}
+        className="just-comments"
+        data-apikey="55afc145-cf59-4890-82ad-663cad43b6ad"
+      />
+    )
+  }
+  componentDidMount() {
+    const s = document.createElement('script')
+    s.src = '//just-comments.com/w.js'
+    s.setAttribute('data-timestamp', +new Date())
+    this.ref.current.appendChild(s)
+  }
 }
 
 BlogPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
-}
+};
 
-export default BlogPost
+export default BlogPost;
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
@@ -123,4 +150,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
