@@ -1,6 +1,6 @@
 ---
 templateKey: "blog-post"
-title: "【React】SVGアイコンをReactアプリで使う"
+title: "【React】SVGアイコンをReactで使う"
 date: 2019-06-28T15:04:10.000Z
 featuredpost: false
 featuredimage: /img/react-image.png
@@ -20,6 +20,7 @@ gulp 等のタスクランナーで自動化していたとはいえ、なかな
 さらに、使わない svg アイコンも含めて全てを`<body>`直下読み込むのは効率が悪い。
 
 React だと非常に効率よく、さらにフレキシブルな状態で、簡単に svg 画像が使えるようになりました。
+一番フレキシブルな方法は何だろうと調べた結果。
 
 ## 1. `react-icons` を使う
 
@@ -29,5 +30,4 @@ React だと非常に効率よく、さらにフレキシブルな状態で、�
 
 Create React App 2.0 から、svg ファイルを直接 React コンポーネントとして読み込めるようになりました。
 
-> 参考  
-> [Adding SVGs](https://facebook.github.io/create-react-app/docs/adding-images-fonts-and-files#adding-svgs)
+- [Adding SVGs](https://facebook.github.io/create-react-app/docs/adding-images-fonts-and-files#adding-svgs)
