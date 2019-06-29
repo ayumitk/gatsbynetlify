@@ -1,92 +1,93 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
 
-import facebook from '../img/social/facebook.svg'
-import instagram from '../img/social/instagram.svg'
-import twitter from '../img/social/twitter.svg'
-import vimeo from '../img/social/vimeo.svg'
+import twitter from '../img/twitter.svg';
+import github from '../img/github.svg';
+import dribbble from '../img/dribbble.svg';
+import behance from '../img/behance.svg';
+import linkedin from '../img/linkedin.svg';
+
+const currentDate = new Date();
+const copyrightYear = currentDate.getFullYear();
 
 const Footer = class extends React.Component {
   render() {
     return (
-      <footer className="footer has-background-black has-text-white-ter">
-        <div className="content has-text-centered has-background-black has-text-white-ter">
-          <div className="container has-background-black has-text-white-ter">
-            <div className="columns">
-              <div className="column is-4">
-                <section className="menu">
-                  <ul className="menu-list">
-                    <li>
-                      <Link to="/" className="navbar-item">
+      <footer className="footer">
+        <div className="container">
+          <section>
+            <ul className="nav-list">
+              <li className="nav-item">
+                <Link to="/" className="nav-link">
                         Home
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/about">
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/about">
                         About
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/products">
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/products">
                         Products
-                      </Link>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-              <div className="column is-4">
-                <section>
-                  <ul className="menu-list">
-                    <li>
-                      <Link className="navbar-item" to="/blog">
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/blog">
                         Blog
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/contact">
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/contact">
                         Contact
-                      </Link>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-              <div className="column is-4 social">
-                <a title="facebook" href="https://facebook.com">
-                  <img
-                    src={facebook}
-                    alt="Facebook"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
-                <a title="twitter" href="https://twitter.com">
-                  <img
-                    className="fas fa-lg"
-                    src={twitter}
-                    alt="Twitter"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
-                <a title="instagram" href="https://instagram.com">
-                  <img
-                    src={instagram}
-                    alt="Instagram"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
-                <a title="vimeo" href="https://vimeo.com">
-                  <img
-                    src={vimeo}
-                    alt="Vimeo"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
-              </div>
-            </div>
+                </Link>
+              </li>
+            </ul>
+          </section>
+
+
+          <div className="social-nav mb-3">
+            <a title="twitter" className="social-link" href="https://twitter.com">
+              <img
+                src={twitter}
+                alt="Twitter"
+              />
+            </a>
+            <a title="github" className="social-link" href="https://github.com">
+              <img
+                className="fas fa-lg"
+                src={github}
+                alt="Github"
+              />
+            </a>
+            <a title="dribbble" className="social-link" href="https://dribbble.com">
+              <img
+                src={dribbble}
+                alt="Dribbble"
+              />
+            </a>
+            <a title="behance" className="social-link" href="https://behance.com">
+              <img
+                src={behance}
+                alt="Behance"
+              />
+            </a>
+            <a title="linkedin" className="social-link" href="https://linkedin.com">
+              <img
+                src={linkedin}
+                alt="Linkedin"
+              />
+            </a>
           </div>
+
+          <p className="copyright small text-muted text-center">
+            {`© ${copyrightYear} Ayumi Takahashi`}
+          </p>
+
         </div>
       </footer>
-    )
+    );
   }
-}
+};
 
-export default Footer
+export default Footer;

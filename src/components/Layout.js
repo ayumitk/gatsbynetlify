@@ -1,13 +1,13 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import Footer from './Footer';
+import Navbar from './Navbar';
 // import './all.sass'
-import '../styles/common.scss'
-import useSiteMetadata from './SiteMetadata'
+import '../styles/common.scss';
+import useSiteMetadata from './SiteMetadata';
 
 const TemplateWrapper = ({ children }) => {
-  const { title, description } = useSiteMetadata()
+  const { title, description } = useSiteMetadata();
   return (
     <div>
       <Helmet>
@@ -36,7 +36,7 @@ const TemplateWrapper = ({ children }) => {
         <link
           rel="mask-icon"
           href="/img/safari-pinned-tab.svg"
-          color="#ff4400"
+          color="#ce2573"
         />
         <meta name="theme-color" content="#fff" />
 
@@ -49,7 +49,7 @@ const TemplateWrapper = ({ children }) => {
       <div>{children}</div>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default TemplateWrapper
+export default TemplateWrapper;

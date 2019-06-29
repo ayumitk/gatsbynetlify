@@ -1,18 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql, StaticQuery } from 'gatsby'
-import PreviewCompatibleImage from './PreviewCompatibleImage'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link, graphql, StaticQuery } from 'gatsby';
+import PreviewCompatibleImage from './PreviewCompatibleImage';
 
 class BlogRoll extends React.Component {
   render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+    const { data } = this.props;
+    const { edges: posts } = data.allMarkdownRemark;
 
     return (
       <div className="row">
-        {posts &&
-          posts.map(({ node: post }) => (
-            <div className="col-sm-3" key={post.id}>
+        {posts
+          && posts.map(({ node: post }) => (
+            <div className="col-sm-4 col-lg-3" key={post.id}>
               <article
                 className={`card ${
                   post.frontmatter.featuredpost ? 'is-featured' : ''
@@ -21,7 +21,7 @@ class BlogRoll extends React.Component {
                 <div className="card-body">
                   <header>
                     {post.frontmatter.featuredimage ? (
-                      <div className="featured-thumbnail mb-2">
+                      <Link to={post.fields.slug} className="thumbnail-image">
                         <PreviewCompatibleImage
                           imageInfo={{
                             image: post.frontmatter.featuredimage,
@@ -30,13 +30,10 @@ class BlogRoll extends React.Component {
                             }`,
                           }}
                         />
-                      </div>
+                      </Link>
                     ) : null}
                     <p className="post-meta mb-1">
-                      <Link
-                        className="title has-text-primary is-size-4"
-                        to={post.fields.slug}
-                      >
+                      <Link to={post.fields.slug}>
                         {post.frontmatter.title}
                       </Link>
                     </p>
@@ -55,7 +52,7 @@ class BlogRoll extends React.Component {
             </div>
           ))}
       </div>
-    )
+    );
   }
 }
 
@@ -65,7 +62,7 @@ BlogRoll.propTypes = {
       edges: PropTypes.array,
     }),
   }),
-}
+};
 
 export default () => (
   <StaticQuery
@@ -103,4 +100,4 @@ export default () => (
     `}
     render={(data, count) => <BlogRoll data={data} count={count} />}
   />
-)
+);

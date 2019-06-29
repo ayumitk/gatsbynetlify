@@ -1,9 +1,7 @@
 @import "valuables";
 
 // Override default variables before the import
-$theme-colors: (
-  "primary": $pink
-);
+$theme-colors: ("primary": $pink);
 
 $text-color: $black;
 
@@ -25,7 +23,50 @@ $text-muted: $gray;
 .navbar-menu .navbar-item {
   color: $black;
   margin-left: 1.5rem;
+
   &:hover {
     color: lighten($black, 20%);
+  }
+}
+
+.footer {
+  padding: 3rem 0;
+  background: #1f2430;
+  margin-top: 5rem;
+
+  .nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+
+    .nav-link {
+      color: #cbccc6;
+      padding: 1rem;
+    }
+  }
+
+  .social-nav {
+    display: flex;
+    justify-content: center;
+
+    .social-link {
+      display: block;
+      background: #cbccc6;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 1.2rem;
+      padding: 0.7rem;
+      margin: 0.5rem;
+      line-height: 0;
+
+      img {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      &:hover {
+        background: $pink;
+      }
+    }
   }
 }
