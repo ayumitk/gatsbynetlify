@@ -1,21 +1,15 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
+title: Hi, I'm Ayumi
 image: /img/home-jumbotron.jpg
-heading: Great coffee with a conscience
-subheading: Support sustainable farming while enjoying a cup
+heading: About Me
+subheading: UI/UX Designer & Developer
 mainpitch:
-  title: Why Kaldi
+  title: Heading
   description: >
-    Kaldi is the coffee store for everyone who believes that great coffee
-    shouldn't just taste good, it should do good too. We source all of our beans
-    directly from small scale sustainable farmers and make sure part of the
-    profits are reinvested in their communities.
+    description
 description: >-
-  Kaldi is the ultimate spot for coffee lovers who want to learn about their
-  java’s origin and support the farmers that grew it. We take coffee production,
-  roasting and brewing seriously and we’re glad to pass that knowledge to
-  anyone.
+  I am a UI/UX designer and developer skilled in HTML, CSS/Sass, JavaScript, Adobe Creative Suite and Sketch as well as template platforms including Wordpress. My extensive experience and background in graphic design allow me to bridge the gap between design and development to create the most beautiful, and highly functional, websites and mobile apps. I am currently the lead creative director (REMOTE) for a tech company for pet-lovers based in Japan.
 intro:
   blurbs:
     - image: /img/coffee.png

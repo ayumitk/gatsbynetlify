@@ -1,27 +1,48 @@
-.description {
-  color: #7e8890;
+@import "valuables";
+
+.blog-post {
+  hr {
+    margin: 3rem 0;
+  }
+
+  article header {
+    border-bottom: solid 1px rgba(33, 37, 41, 0.1);
+    margin-bottom: 3rem;
+  }
 }
 
-hr {
-  margin: 3rem 0;
-}
-
-article header {
-  border-bottom: solid 1px whitesmoke;
-  padding-bottom: 1.5rem;
-  margin-bottom: 3rem;
-}
-
+/* --------------------------------------------------
+  Tags
+----------------------------------------------------*/
 .tag-list {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  .tag-item {
+    margin-right: 0.25rem;
+    .tag-link {
+      display: block;
+      background: $gray-light;
+      font-size: 0.875rem;
+      line-height: 2rem;
+      border-radius: 1rem;
+      padding: 0 1rem;
+      color: $black;
+      &:hover {
+        background: $pink;
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 /* --------------------------------------------------
   Code block
 ----------------------------------------------------*/
 code {
-  background: #e8edf1;
+  background: $gray-light;
   display: inline-block;
   padding: 0.15rem 0.35rem;
 }

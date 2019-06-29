@@ -1,33 +1,31 @@
+@import "valuables";
+
 // Override default variables before the import
-$pink: #ce2573;
-$pink-invert: #fff;
-
-$gray: #7e8890;
-$gray-light: #dcd9d9;
-
-$blue: #486ab7;
-$blue-dark: #374054;
-
-$black: #212529;
-
 $theme-colors: (
   "primary": $pink
 );
 
+$text-color: $black;
+
+$link-color: $blue;
+
+$text-muted: $gray;
+
 // Import Bootstrap and its default variables
 @import "~bootstrap/scss/bootstrap.scss";
 @import url("https://fonts.googleapis.com/css?family=Rubik:700&display=swap");
-
-a {
-  color: $blue;
-  &:hover {
-    color: lighten($blue, 5%);
-  }
-}
 
 .navbar-brand a {
   color: $pink;
   font-size: 2rem;
   font-weight: 700;
   font-family: "Rubik", sans-serif;
+}
+
+.navbar-menu .navbar-item {
+  color: $black;
+  margin-left: 1.5rem;
+  &:hover {
+    color: lighten($black, 20%);
+  }
 }

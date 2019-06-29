@@ -12,46 +12,45 @@ class BlogRoll extends React.Component {
       <div className="row">
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="col-3" key={post.id}>
+            <div className="col-sm-3" key={post.id}>
               <article
-                className={`blog-list-item tile is-child box notification ${
+                className={`card ${
                   post.frontmatter.featuredpost ? 'is-featured' : ''
                 }`}
               >
-                <header>
-                  {post.frontmatter.featuredimage ? (
-                    <div className="featured-thumbnail">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${
-                            post.title
-                          }`,
-                        }}
-                      />
-                    </div>
-                  ) : null}
-                  <p className="post-meta">
-                    <Link
-                      className="title has-text-primary is-size-4"
-                      to={post.fields.slug}
-                    >
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <span className="subtitle is-size-5 is-block">
+                <div className="card-body">
+                  <header>
+                    {post.frontmatter.featuredimage ? (
+                      <div className="featured-thumbnail mb-2">
+                        <PreviewCompatibleImage
+                          imageInfo={{
+                            image: post.frontmatter.featuredimage,
+                            alt: `featured image thumbnail for post ${
+                              post.title
+                            }`,
+                          }}
+                        />
+                      </div>
+                    ) : null}
+                    <p className="post-meta mb-1">
+                      <Link
+                        className="title has-text-primary is-size-4"
+                        to={post.fields.slug}
+                      >
+                        {post.frontmatter.title}
+                      </Link>
+                    </p>
+                    <p className="text-muted small mb-1">
                       {post.frontmatter.date}
-                    </span>
+                    </p>
+                  </header>
+                  <p>
+                    {post.frontmatter.description}
+                    <Link className="" to={post.fields.slug}>
+                      Keep Reading →
+                    </Link>
                   </p>
-                </header>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="btn btn-secondary" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
-                </p>
+                </div>
               </article>
             </div>
           ))}
@@ -87,6 +86,7 @@ export default () => (
                 title
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
+                description
                 featuredpost
                 featuredimage {
                   childImageSharp {
