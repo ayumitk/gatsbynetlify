@@ -42,6 +42,11 @@ $text-muted: $gray;
     .nav-link {
       color: #cbccc6;
       padding: 1rem;
+
+      &:hover {
+        color: $pink;
+        text-decoration: underline;
+      }
     }
   }
 
