@@ -1,12 +1,39 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import twitter from '../img/twitter.svg';
-import github from '../img/github.svg';
-import dribbble from '../img/dribbble.svg';
-import behance from '../img/behance.svg';
-import linkedin from '../img/linkedin.svg';
+import {
+  FaTwitter, FaGithub, FaDribbble, FaBehance, FaLinkedinIn,
+} from 'react-icons/fa';
 
+const socialAccount = [
+  {
+    name: 'Twitter',
+    url: 'https://twitter.com/ayumitk__',
+    icon: <FaTwitter />,
+  },
+  {
+    name: 'Github',
+    url: 'https://github.com/ayumitk',
+    icon: <FaGithub />,
+  },
+  {
+    name: 'Dribbble',
+    url: 'https://dribbble.com/ayumitk',
+    icon: <FaDribbble />,
+  },
+  {
+    name: 'Behance',
+    url: 'https://www.behance.net/ayumitk',
+    icon: <FaBehance />,
+  },
+  {
+    name: 'Linkedin',
+    url: 'https://www.linkedin.com/in/ayumi-takahashi-951831a9',
+    icon: <FaLinkedinIn />,
+  },
+];
+
+// Copyright Year
 const currentDate = new Date();
 const copyrightYear = currentDate.getFullYear();
 
@@ -47,37 +74,11 @@ const Footer = class extends React.Component {
 
 
           <div className="social-nav mb-3">
-            <a title="twitter" className="social-link" href="https://twitter.com">
-              <img
-                src={twitter}
-                alt="Twitter"
-              />
-            </a>
-            <a title="github" className="social-link" href="https://github.com">
-              <img
-                className="fas fa-lg"
-                src={github}
-                alt="Github"
-              />
-            </a>
-            <a title="dribbble" className="social-link" href="https://dribbble.com">
-              <img
-                src={dribbble}
-                alt="Dribbble"
-              />
-            </a>
-            <a title="behance" className="social-link" href="https://behance.com">
-              <img
-                src={behance}
-                alt="Behance"
-              />
-            </a>
-            <a title="linkedin" className="social-link" href="https://linkedin.com">
-              <img
-                src={linkedin}
-                alt="Linkedin"
-              />
-            </a>
+            {socialAccount.map(item => (
+              <Link title={item.name} className="social-link" href={item.url} target="_blank">
+                {item.icon}
+              </Link>
+            ))}
           </div>
 
           <p className="copyright small text-muted text-center">
