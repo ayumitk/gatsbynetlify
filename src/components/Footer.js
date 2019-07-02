@@ -45,7 +45,7 @@ const Footer = class extends React.Component {
           <section>
             <ul className="nav-list">
               <li className="nav-item">
-                <Link to="/" className="nav-link">
+                <Link className="nav-link" to="/">
                         Home
                 </Link>
               </li>
@@ -75,9 +75,9 @@ const Footer = class extends React.Component {
 
           <div className="social-nav mb-3">
             {socialAccount.map(item => (
-              <Link title={item.name} className="social-link" href={item.url} target="_blank">
+              <a title={item.name} className="social-link" href={item.url} target="_blank" key={item.name}>
                 {item.icon}
-              </Link>
+              </a>
             ))}
           </div>
 
