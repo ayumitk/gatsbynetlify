@@ -8,7 +8,7 @@ description: 状況によって使い分ける find(), filter(), findIndex(), so
 
 tags:
   - JavaScript
-  - 配列(Array)
+  - Array
   - Tips
 ---
 
