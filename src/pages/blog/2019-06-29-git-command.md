@@ -11,7 +11,7 @@ tags:
   - Tips
 ---
 
-![git-image](/img/git-image.png)
+<!-- ![git-image](/img/git-image.png) -->
 
 ## ローカルブランチを削除する
 

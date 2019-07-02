@@ -13,7 +13,7 @@ tags:
   - Tips
 ---
 
-![git-image](/img/react-image.png)
+<!-- ![git-image](/img/react-image.png) -->
 
 svg について 2 通り。
 

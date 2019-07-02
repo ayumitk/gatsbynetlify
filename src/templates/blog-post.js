@@ -5,6 +5,8 @@ import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import TableOfContents from '../components/TableOfContents';
 
 import '../styles/prism.scss';
 import '../styles/blog.scss';
@@ -17,6 +19,8 @@ export const BlogPostTemplate = ({
   title,
   helmet,
   date,
+  toc,
+  featuredimage,
 }) => {
   const PostContent = contentComponent || Content;
 
@@ -46,6 +50,15 @@ export const BlogPostTemplate = ({
             </div>
           </header>
 
+          <PreviewCompatibleImage
+            imageInfo={{
+              image: featuredimage,
+              alt: `featured image for post ${title}`,
+            }}
+          />
+
+          <TableOfContents toc={toc} />
+
           <PostContent content={content} />
 
           <footer>
@@ -69,11 +82,14 @@ export const BlogPostTemplate = ({
 
 BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
-  title: PropTypes.string,
-  helmet: PropTypes.object,
-  date: PropTypes.string,
+  contentComponent: PropTypes.func.isRequired,
+  description: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  helmet: PropTypes.object.isRequired,
+  date: PropTypes.string.isRequired,
+  tags: PropTypes.array.isRequired,
+  toc: PropTypes.string.isRequired,
+  featuredimage: PropTypes.object.isRequired,
 };
 
 const BlogPost = ({ data }) => {
@@ -89,14 +105,16 @@ const BlogPost = ({ data }) => {
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
             <meta
-    name="description"
-    content={`${post.frontmatter.description}`}
-  />
-                    </Helmet>
-)}
+              name="description"
+              content={`${post.frontmatter.description}`}
+            />
+          </Helmet>
+        )}
+        toc={post.tableOfContents}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
         date={post.frontmatter.date}
+        featuredimage={post.frontmatter.featuredimage}
       />
     </Layout>
   );
@@ -115,11 +133,19 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
+      tableOfContents
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
         description
         tags
+        featuredimage {
+          childImageSharp {
+            fluid(maxWidth: 2040, quality: 80) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
