@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
+import { DiscussionEmbed } from 'disqus-react';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
@@ -12,6 +13,7 @@ import '../styles/prism.scss';
 import '../styles/blog.scss';
 
 export const BlogPostTemplate = ({
+  id,
   content,
   contentComponent,
   description,
@@ -21,8 +23,14 @@ export const BlogPostTemplate = ({
   date,
   toc,
   featuredimage,
+  slug,
 }) => {
   const PostContent = contentComponent || Content;
+
+  const disqusConfig = {
+    shortname: process.env.GATSBY_DISQUS_NAME,
+    config: { id: slug, title },
+  };
 
   return (
     <section className="blog-post">
@@ -73,6 +81,8 @@ export const BlogPostTemplate = ({
             ) : null}
           </footer>
 
+          <DiscussionEmbed {...disqusConfig} />
+
         </article>
 
       </div>
@@ -81,6 +91,7 @@ export const BlogPostTemplate = ({
 };
 
 BlogPostTemplate.propTypes = {
+  id: PropTypes.string.isRequired,
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func.isRequired,
   description: PropTypes.string.isRequired,
@@ -98,6 +109,7 @@ const BlogPost = ({ data }) => {
   return (
     <Layout>
       <BlogPostTemplate
+        id={post.id}
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
@@ -110,6 +122,7 @@ const BlogPost = ({ data }) => {
             />
           </Helmet>
         )}
+        slug={post.fields.slug}
         toc={post.tableOfContents}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
@@ -134,6 +147,9 @@ export const pageQuery = graphql`
       id
       html
       tableOfContents
+      fields {
+        slug
+      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
