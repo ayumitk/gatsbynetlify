@@ -92,3 +92,9 @@ $ git cherry-pick XXXXXXXXXXXXXXXXXXXXXXXX
 ```
 $ git pull origin <リモートブランチ名>:<ローカルブランチ名>
 ```
+
+リモートブランチをローカルに checkout する
+
+```
+$ git checkout -b <ローカルブランチ名> origin/<リモートブランチ名>
+```
