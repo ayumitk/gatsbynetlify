@@ -1,5 +1,5 @@
-import React from 'react';
-import { navigate } from 'gatsby-link';
+import React, { Component } from 'react';
+import { injectIntl, FormattedMessage, navigate } from 'gatsby-plugin-intl';
 import Layout from '../../components/Layout';
 
 function encode(data) {
@@ -8,7 +8,7 @@ function encode(data) {
     .join('&');
 }
 
-export default class Index extends React.Component {
+class Index extends Component {
   constructor(props) {
     super(props);
     this.state = { isValidated: false };
@@ -57,7 +57,7 @@ export default class Index extends React.Component {
 
             <div className="form-group">
               <label htmlFor="name">
-                Your name
+                <FormattedMessage id="contact.name" />
               </label>
               <input
                 className="form-control"
@@ -71,7 +71,7 @@ export default class Index extends React.Component {
 
             <div className="form-group">
               <label htmlFor="email">
-                Email
+                <FormattedMessage id="contact.email" />
               </label>
               <input
                 className="form-control"
@@ -85,7 +85,7 @@ export default class Index extends React.Component {
 
             <div className="form-group">
               <label htmlFor="message">
-                Message
+                <FormattedMessage id="contact.message" />
               </label>
               <textarea
                 className="form-control"
@@ -98,7 +98,7 @@ export default class Index extends React.Component {
 
             <div className="form-group">
               <button className="btn btn-primary" type="submit">
-                Send
+                <FormattedMessage id="contact.send" />
               </button>
             </div>
 
@@ -108,3 +108,5 @@ export default class Index extends React.Component {
     );
   }
 }
+
+export default injectIntl(Index);

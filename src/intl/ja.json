@@ -4,5 +4,12 @@
     "current": "現在は、ペットと飼い主さん向けサービスを提供するTech企業で UI/UX Developer (REMOTE) として働いています。"
   },
   "read_more": "もっと見る",
-  "not_found": "お探しのページは見つかりませんでした"
+  "not_found": "お探しのページは見つかりませんでした",
+  "contact": {
+    "name": "お名前",
+    "email": "Eメール",
+    "message": "メッセージ",
+    "send": "送信",
+    "thanks": "なるべく早く返信しますね。よい一日を～！"
+  }
 }

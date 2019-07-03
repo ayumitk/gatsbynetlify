@@ -4,5 +4,12 @@
     "current": "I'm currently the lead creative director (REMOTE) for a tech company for pet-lovers."
   },
   "read_more": "Read More",
-  "not_found": "You just hit a route that doesn't exist... the sadness."
+  "not_found": "You just hit a route that doesn't exist... the sadness.",
+  "contact": {
+    "name": "Your Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send",
+    "thanks": "I'll get back to you shortly. Have a great day!"
+  }
 }
