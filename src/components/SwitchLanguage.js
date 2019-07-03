@@ -11,24 +11,22 @@ const languageName = {
 class SwitchLanguage extends Component {
   render() {
     return (
-      <div className="switch-language">
-        <IntlContextConsumer>
-          {({ languages, language: currentLocale }) => languages.map(language => (
-            <button
-              key={language}
-              onClick={() => changeLocale(language)}
-              style={{
-                display: currentLocale === language ? 'none' : 'block',
-              }}
-              className="switch-language__link"
-              type="button"
-            >
-              <FaGlobe />
-              {languageName[language]}
-            </button>
-          ))}
-        </IntlContextConsumer>
-      </div>
+      <IntlContextConsumer>
+        {({ languages, language: currentLocale }) => languages.map(language => (
+          <button
+            key={language}
+            onClick={() => changeLocale(language)}
+            style={{
+              display: currentLocale === language ? 'none' : 'block',
+            }}
+            className="switch-language__link"
+            type="button"
+          >
+            <FaGlobe />
+            {languageName[language]}
+          </button>
+        ))}
+      </IntlContextConsumer>
     );
   }
 }
