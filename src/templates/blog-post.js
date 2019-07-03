@@ -1,13 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
-import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { kebabCase } from 'lodash';
+import Helmet from 'react-helmet';
+import { graphql, Link } from 'gatsby';
+import Layout from '../components/Layout';
+import Content, { HTMLContent } from '../components/Content';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import TableOfContents from '../components/TableOfContents';
 
-import "../styles/prism.scss";
-import "../styles/blog.scss";
+import '../styles/prism.scss';
+import '../styles/blog.scss';
 
 export const BlogPostTemplate = ({
   content,
@@ -17,8 +19,10 @@ export const BlogPostTemplate = ({
   title,
   helmet,
   date,
+  toc,
+  featuredimage,
 }) => {
-  const PostContent = contentComponent || Content
+  const PostContent = contentComponent || Content;
 
   return (
     <section className="blog-post">
@@ -36,7 +40,7 @@ export const BlogPostTemplate = ({
               {tags && tags.length ? (
                 <ul className="tag-list">
                   {tags.map(tag => (
-                    <li className="tag-item" key={tag + `tag`}>
+                    <li className="tag-item" key={`${tag}tag`}>
                       <Link className="tag-link" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
                     </li>
                   ))}
@@ -46,13 +50,22 @@ export const BlogPostTemplate = ({
             </div>
           </header>
 
+          <PreviewCompatibleImage
+            imageInfo={{
+              image: featuredimage,
+              alt: `featured image for post ${title}`,
+            }}
+          />
+
+          <TableOfContents toc={toc} />
+
           <PostContent content={content} />
 
           <footer>
             {tags && tags.length ? (
-              <ul className="tag-list" style={{ marginTop: `4rem` }}>
+              <ul className="tag-list" style={{ marginTop: '4rem' }}>
                 {tags.map(tag => (
-                  <li className="tag-item" key={tag + `tag`}>
+                  <li className="tag-item" key={`${tag}tag`}>
                     <Link className="tag-link" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
                   </li>
                 ))}
@@ -64,20 +77,23 @@ export const BlogPostTemplate = ({
 
       </div>
     </section>
-  )
-}
+  );
+};
 
 BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
-  title: PropTypes.string,
-  helmet: PropTypes.object,
-  date: PropTypes.string,
-}
+  contentComponent: PropTypes.func.isRequired,
+  description: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  helmet: PropTypes.object.isRequired,
+  date: PropTypes.string.isRequired,
+  tags: PropTypes.array.isRequired,
+  toc: PropTypes.string.isRequired,
+  featuredimage: PropTypes.object.isRequired,
+};
 
 const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: post } = data;
 
   return (
     <Layout>
@@ -85,7 +101,7 @@ const BlogPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        helmet={
+        helmet={(
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
             <meta
@@ -93,34 +109,44 @@ const BlogPost = ({ data }) => {
               content={`${post.frontmatter.description}`}
             />
           </Helmet>
-        }
+        )}
+        toc={post.tableOfContents}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
         date={post.frontmatter.date}
+        featuredimage={post.frontmatter.featuredimage}
       />
     </Layout>
-  )
-}
+  );
+};
 
 BlogPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
-}
+};
 
-export default BlogPost
+export default BlogPost;
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
+      tableOfContents
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
         description
         tags
+        featuredimage {
+          childImageSharp {
+            fluid(maxWidth: 2040, quality: 80) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
-`
+`;

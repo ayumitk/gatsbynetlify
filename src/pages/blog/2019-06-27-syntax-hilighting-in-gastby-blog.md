@@ -13,7 +13,7 @@ tags:
   - Tips
 ---
 
-![gatsby-image](/img/gatsby-image.png)
+<!-- ![gatsby-image](/img/gatsby-image.png) -->
 
 ## 1. プラグインをインストール
 

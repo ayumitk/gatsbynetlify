@@ -14,7 +14,7 @@ tags:
   - Tips
 ---
 
-![react-image](/img/react-image.png)
+<!-- ![react-image](/img/react-image.png) -->
 
 ## 1. `create-react-app` でプロジェクトを作る
 
