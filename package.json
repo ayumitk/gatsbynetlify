@@ -6,6 +6,7 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "bulma": "^0.7.0",
+    "disqus-react": "^1.0.6",
     "gatsby": "^2.1.34",
     "gatsby-image": "^2.0.23",
     "gatsby-link": "^2.2.0",
@@ -20,6 +21,7 @@
     "gatsby-remark-images": "^3.0.1",
     "gatsby-remark-prismjs": "^3.3.0",
     "gatsby-remark-relative-images": "^0.2.1",
+    "gatsby-remark-toc": "^1.2.0",
     "gatsby-source-filesystem": "^2.0.26",
     "gatsby-transformer-remark": "^2.5.0",
     "gatsby-transformer-sharp": "^2.1.9",

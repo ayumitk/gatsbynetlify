@@ -8,11 +8,11 @@ description: 状況によって使い分ける find(), filter(), findIndex(), so
 
 tags:
   - JavaScript
-  - 配列(Array)
+  - Array
   - Tips
 ---
 
-![js-image](/img/js-image.png)
+<!-- ![js-image](/img/js-image.png) -->
 
 配列の中から特定の要素を探すとき。
 
