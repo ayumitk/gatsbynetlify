@@ -29,8 +29,10 @@ export const BlogPostTemplate = ({
 
   const disqusConfig = {
     shortname: process.env.GATSBY_DISQUS_NAME,
-    config: { id: slug, title },
+    config: { identifier: slug, title },
   };
+
+  console.log(disqusConfig);
 
   return (
     <section className="blog-post">
@@ -92,6 +94,7 @@ export const BlogPostTemplate = ({
 
 BlogPostTemplate.propTypes = {
   id: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func.isRequired,
   description: PropTypes.string.isRequired,
