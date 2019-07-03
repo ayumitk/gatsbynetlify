@@ -1,55 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { injectIntl, FormattedMessage } from 'gatsby-plugin-intl';
 import Layout from '../components/Layout';
-import Content, { HTMLContent } from '../components/Content';
 
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
-  const PageContent = contentComponent || Content;
+export const AboutPageTemplate = () => (
+  <section className="container">
+    <h1>About Me</h1>
+    <p><FormattedMessage id="about_me.description" /></p>
+    <p><FormattedMessage id="about_me.current" /></p>
+  </section>
+);
 
-  return (
-    <section className="container">
-      <h1>
-        {title}
-      </h1>
-      <PageContent content={content} />
-    </section>
-  );
-};
+const AboutPage = () => (
+  <Layout>
+    <AboutPageTemplate />
+  </Layout>
+);
 
-AboutPageTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string,
-  contentComponent: PropTypes.func,
-};
-
-const AboutPage = ({ data }) => {
-  const { markdownRemark: post } = data;
-
-  return (
-    <Layout>
-      <AboutPageTemplate
-        contentComponent={HTMLContent}
-        title={post.frontmatter.title}
-        content={post.html}
-      />
-    </Layout>
-  );
-};
-
-AboutPage.propTypes = {
-  data: PropTypes.object.isRequired,
-};
-
-export default AboutPage;
-
-export const aboutPageQuery = graphql`
-  query AboutPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      html
-      frontmatter {
-        title
-      }
-    }
-  }
-`;
+export default injectIntl(AboutPage);
