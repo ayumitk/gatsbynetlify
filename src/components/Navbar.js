@@ -37,7 +37,7 @@ class Navbar extends Component {
         </div>
 
         <button
-          className={`ml-auto d-sm-none navbar-hamburger ${navBarActiveClass}`}
+          className={`d-sm-none navbar-hamburger ${navBarActiveClass}`}
           onClick={this.toggleHamburger}
           type="button"
         >
@@ -45,7 +45,7 @@ class Navbar extends Component {
         </button>
 
         <div
-          className={`navbar-menu d-sm-flex ${navBarActiveClass}`}
+          className={`navbar-menu ${navBarActiveClass}`}
         >
           <Link className="navbar-item" to="/about">
             About
