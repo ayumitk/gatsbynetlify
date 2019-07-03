@@ -1,7 +1,9 @@
 @import "valuables";
 
 // Override default variables before the import
-$theme-colors: ("primary": $pink);
+$theme-colors: (
+  "primary": $pink
+);
 
 $text-color: $black;
 
@@ -81,7 +83,7 @@ $text-muted: $gray;
         transform: scale(1.2);
 
         svg {
-          fill: #FFF;
+          fill: #fff;
         }
       }
     }
@@ -90,6 +92,10 @@ $text-muted: $gray;
 
 .navbar-menu {
   margin-left: auto;
+  display: none;
+  &.active {
+    display: block;
+  }
 }
 
 .switch-language__link {
@@ -108,5 +114,34 @@ $text-muted: $gray;
 
   svg {
     margin-right: 0.25rem;
+  }
+}
+
+.navbar {
+  border-bottom: solid 1px $gray-light;
+}
+
+.navbar-hamburger {
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  span,
+  span::before,
+  span::after {
+    position: absolute;
+    height: 2px;
+    width: 25px;
+    background: $black;
+    display: block;
+    content: "";
+    cursor: pointer;
+  }
+  span:before {
+    top: -8px;
+  }
+  span:after {
+    bottom: -8px;
   }
 }

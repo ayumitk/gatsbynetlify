@@ -1,13 +1,10 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import { injectIntl, FormattedMessage } from 'gatsby-plugin-intl';
+import { injectIntl, FormattedMessage, Link } from 'gatsby-plugin-intl';
 import Layout from '../components/Layout';
 import BlogRoll from '../components/BlogRoll';
 
-
 export const IndexPageTemplate = () => (
   <div>
-
     <section>
       <div className="container text-center">
         <h2>Hi, I&apos;m Ayumi</h2>
