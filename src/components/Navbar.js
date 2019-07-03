@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import SwitchLanguage from './SwitchLanguage';
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -53,6 +54,7 @@ const Navbar = class extends React.Component {
               <span />
             </div>
           </div>
+
           <div
             id="navMenu"
             className={`navbar-menu ${this.state.navBarActiveClass}`}
@@ -72,6 +74,9 @@ const Navbar = class extends React.Component {
               </Link>
             </div>
           </div>
+
+          <SwitchLanguage />
+
         </div>
       </nav>
     );

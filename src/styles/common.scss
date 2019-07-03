@@ -18,6 +18,10 @@ $text-muted: $gray;
   font-size: 2rem;
   font-weight: 700;
   font-family: "Rubik", sans-serif;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .navbar-menu .navbar-item {
@@ -25,7 +29,8 @@ $text-muted: $gray;
   margin-left: 1.5rem;
 
   &:hover {
-    color: lighten($black, 20%);
+    // color: lighten($black, 20%);
+    color: $pink;
   }
 }
 
@@ -80,5 +85,24 @@ $text-muted: $gray;
         }
       }
     }
+  }
+}
+
+.navbar-menu {
+  margin-left: auto;
+}
+
+.switch-language__link {
+  background: transparent;
+  cursor: pointer;
+  border: 0;
+  border-left: solid 1px $gray-light;
+  color: black;
+  padding: 0 0 0 1rem;
+  margin-left: 1rem;
+
+  &:hover {
+    color: $pink;
+    text-decoration: underline;
   }
 }
