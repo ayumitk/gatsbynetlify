@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link } from 'gatsby-plugin-intl';
 
 import {
   FaTwitter, FaGithub, FaDribbble, FaBehance, FaLinkedinIn,
@@ -55,13 +55,13 @@ const Footer = class extends React.Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/products">
-                        Products
+                <Link className="nav-link" to="/blog">
+                        Blog
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/blog">
-                        Blog
+                <Link className="nav-link" to="/work">
+                        Work
                 </Link>
               </li>
               <li className="nav-item">

@@ -34,6 +34,19 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
+      resolve: 'gatsby-plugin-intl',
+      options: {
+        // language JSON resource path
+        path: `${__dirname}/src/intl`,
+        // supported language
+        languages: ['en', 'ja'],
+        // language file path
+        defaultLanguage: 'en',
+        // option to redirect to `/ja` when connecting `/`
+        redirect: true,
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [

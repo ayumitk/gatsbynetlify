@@ -1,81 +1,70 @@
-import React from 'react';
-import { Link } from 'gatsby';
+import React, { Component } from 'react';
+import { Link } from 'gatsby-plugin-intl';
+import SwitchLanguage from './SwitchLanguage';
 
-const Navbar = class extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: false,
-      navBarActiveClass: '',
-    };
+class Navbar extends Component {
+  state = {
+    isActive: false,
+    navBarActiveClass: '',
   }
 
   toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-            navBarActiveClass: 'is-active',
-          })
-          : this.setState({
-            navBarActiveClass: '',
-          });
-      },
-    );
+    this.setState((prevState) => {
+      if (prevState.isActive) {
+        return {
+          isActive: !prevState.isActive,
+          navBarActiveClass: '',
+        };
+      }
+      return {
+        isActive: !prevState.isActive,
+        navBarActiveClass: 'active',
+      };
+    });
   }
 
   render() {
+    const { navBarActiveClass } = this.state;
     return (
       <nav
-        className="navbar is-transparent"
-        role="navigation"
-        aria-label="main-navigation"
+        className="navbar"
       >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              Ayumi.tk
-            </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
-            >
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
-          <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
-          >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-            </div>
-          </div>
+
+        <div className="navbar-brand">
+          <Link to="/" className="navbar-item" title="Logo">
+            Ayumi.tk
+          </Link>
         </div>
+
+        <button
+          className={`d-sm-none navbar-hamburger ${navBarActiveClass}`}
+          onClick={this.toggleHamburger}
+          type="button"
+        >
+          <span />
+        </button>
+
+        <div
+          className={`navbar-menu ${navBarActiveClass}`}
+        >
+          <Link className="navbar-item" to="/about">
+            About
+          </Link>
+          <Link className="navbar-item" to="/blog">
+            Blog
+          </Link>
+          <Link className="navbar-item" to="/work">
+            Work
+          </Link>
+          <Link className="navbar-item" to="/contact">
+            Contact
+          </Link>
+          <SwitchLanguage />
+        </div>
+
       </nav>
     );
   }
-};
+}
 
 export default Navbar;

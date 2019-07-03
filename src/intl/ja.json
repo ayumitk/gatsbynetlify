@@ -1,0 +1,15 @@
+{
+  "about_me": {
+    "description": "UI/UX designer & developerの高橋あゆみです。HTML, CSS/Sass, JavaScript, Adobe Creative Suite and Sketch as well as template platforms including Wordpress. My extensive experience and background in graphic design allow me to bridge the gap between design and development to create the most beautiful, and highly functional, websites and mobile apps.",
+    "current": "現在は、ペットと飼い主さん向けサービスを提供するTech企業で UI/UX Developer (REMOTE) として働いています。"
+  },
+  "read_more": "もっと見る",
+  "not_found": "お探しのページは見つかりませんでした",
+  "contact": {
+    "name": "お名前",
+    "email": "Eメール",
+    "message": "メッセージ",
+    "send": "送信",
+    "thanks": "なるべく早く返信しますね。よい一日を～！"
+  }
+}

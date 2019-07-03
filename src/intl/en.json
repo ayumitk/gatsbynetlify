@@ -1,0 +1,15 @@
+{
+  "about_me": {
+    "description": "I'm a UI/UX designer & developer skilled in HTML, CSS/Sass, JavaScript, Adobe Creative Suite and Sketch as well as template platforms including Wordpress. My extensive experience and background in graphic design allow me to bridge the gap between design and development to create the most beautiful, and highly functional, websites and mobile apps.",
+    "current": "I'm currently the lead creative director (REMOTE) for a tech company for pet-lovers."
+  },
+  "read_more": "Read More",
+  "not_found": "You just hit a route that doesn't exist... the sadness.",
+  "contact": {
+    "name": "Your Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send",
+    "thanks": "I'll get back to you shortly. Have a great day!"
+  }
+}

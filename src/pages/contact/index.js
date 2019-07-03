@@ -1,5 +1,5 @@
-import React from 'react';
-import { navigate } from 'gatsby-link';
+import React, { Component } from 'react';
+import { injectIntl, FormattedMessage, navigate } from 'gatsby-plugin-intl';
 import Layout from '../../components/Layout';
 
 function encode(data) {
@@ -8,10 +8,9 @@ function encode(data) {
     .join('&');
 }
 
-export default class Index extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { isValidated: false };
+class Index extends Component {
+  state = {
+    isValidated: false,
   }
 
   handleChange = (e) => {
@@ -46,59 +45,60 @@ export default class Index extends React.Component {
             data-netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
           >
+            {/* eslint-disable-next-line */}
             {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
             <input type="hidden" name="form-name" value="contact" />
             <div hidden>
-              <label>
+              <label htmlFor="bot-field">
                 Don’t fill this out:
-                <input name="bot-field" onChange={this.handleChange} />
+                <input name="bot-field" id="bot-field" onChange={this.handleChange} />
               </label>
             </div>
 
             <div className="form-group">
               <label htmlFor="name">
-                Your name
+                <FormattedMessage id="contact.name" />
+                <input
+                  className="form-control"
+                  type="text"
+                  name="name"
+                  onChange={this.handleChange}
+                  id="name"
+                  required
+                />
               </label>
-              <input
-                className="form-control"
-                type="text"
-                name="name"
-                onChange={this.handleChange}
-                id="name"
-                required
-              />
             </div>
 
             <div className="form-group">
               <label htmlFor="email">
-                Email
+                <FormattedMessage id="contact.email" />
+                <input
+                  className="form-control"
+                  type="email"
+                  name="email"
+                  onChange={this.handleChange}
+                  id="email"
+                  required
+                />
               </label>
-              <input
-                className="form-control"
-                type="email"
-                name="email"
-                onChange={this.handleChange}
-                id="email"
-                required
-              />
             </div>
 
             <div className="form-group">
               <label htmlFor="message">
-                Message
+                <FormattedMessage id="contact.message" />
+                <textarea
+                  className="form-control"
+                  name="message"
+                  onChange={this.handleChange}
+                  id="message"
+                  required
+                />
               </label>
-              <textarea
-                className="form-control"
-                name="message"
-                onChange={this.handleChange}
-                id="message"
-                required
-              />
             </div>
 
             <div className="form-group">
               <button className="btn btn-primary" type="submit">
-                Send
+                <FormattedMessage id="contact.send" />
               </button>
             </div>
 
@@ -108,3 +108,5 @@ export default class Index extends React.Component {
     );
   }
 }
+
+export default injectIntl(Index);
