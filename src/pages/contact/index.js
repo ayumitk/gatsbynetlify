@@ -9,9 +9,8 @@ function encode(data) {
 }
 
 class Index extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isValidated: false };
+  state = {
+    isValidated: false,
   }
 
   handleChange = (e) => {
@@ -46,54 +45,55 @@ class Index extends Component {
             data-netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
           >
+            {/* eslint-disable-next-line */}
             {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
             <input type="hidden" name="form-name" value="contact" />
             <div hidden>
-              <label>
+              <label htmlFor="bot-field">
                 Don’t fill this out:
-                <input name="bot-field" onChange={this.handleChange} />
+                <input name="bot-field" id="bot-field" onChange={this.handleChange} />
               </label>
             </div>
 
             <div className="form-group">
               <label htmlFor="name">
                 <FormattedMessage id="contact.name" />
+                <input
+                  className="form-control"
+                  type="text"
+                  name="name"
+                  onChange={this.handleChange}
+                  id="name"
+                  required
+                />
               </label>
-              <input
-                className="form-control"
-                type="text"
-                name="name"
-                onChange={this.handleChange}
-                id="name"
-                required
-              />
             </div>
 
             <div className="form-group">
               <label htmlFor="email">
                 <FormattedMessage id="contact.email" />
+                <input
+                  className="form-control"
+                  type="email"
+                  name="email"
+                  onChange={this.handleChange}
+                  id="email"
+                  required
+                />
               </label>
-              <input
-                className="form-control"
-                type="email"
-                name="email"
-                onChange={this.handleChange}
-                id="email"
-                required
-              />
             </div>
 
             <div className="form-group">
               <label htmlFor="message">
                 <FormattedMessage id="contact.message" />
+                <textarea
+                  className="form-control"
+                  name="message"
+                  onChange={this.handleChange}
+                  id="message"
+                  required
+                />
               </label>
-              <textarea
-                className="form-control"
-                name="message"
-                onChange={this.handleChange}
-                id="message"
-                required
-              />
             </div>
 
             <div className="form-group">
