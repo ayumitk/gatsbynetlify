@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
-import { DiscussionEmbed } from 'disqus-react';
+import { DiscussionEmbed, CommentCount } from 'disqus-react';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
@@ -53,7 +53,12 @@ export const BlogPostTemplate = ({
                   ))}
                 </ul>
               ) : null}
-              <p className="text-muted ml-auto">{date}</p>
+              <div className="text-muted ml-auto">
+                <span className="mr-3">{date}</span>
+                <Link to={`${slug}#disqus_thread`}>
+                  <CommentCount {...disqusConfig} />
+                </Link>
+              </div>
             </div>
           </header>
 
