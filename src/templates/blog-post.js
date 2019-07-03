@@ -13,7 +13,6 @@ import '../styles/prism.scss';
 import '../styles/blog.scss';
 
 export const BlogPostTemplate = ({
-  id,
   content,
   contentComponent,
   description,
@@ -31,8 +30,6 @@ export const BlogPostTemplate = ({
     shortname: process.env.GATSBY_DISQUS_NAME,
     config: { identifier: slug, title },
   };
-
-  console.log(disqusConfig);
 
   return (
     <section className="blog-post">
@@ -93,7 +90,6 @@ export const BlogPostTemplate = ({
 };
 
 BlogPostTemplate.propTypes = {
-  id: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func.isRequired,
@@ -112,7 +108,6 @@ const BlogPost = ({ data }) => {
   return (
     <Layout>
       <BlogPostTemplate
-        id={post.id}
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
