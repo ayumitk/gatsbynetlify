@@ -1,6 +1,8 @@
 import React from 'react';
 import { IntlContextConsumer, changeLocale } from 'gatsby-plugin-intl';
 
+import { FaGlobe } from 'react-icons/fa';
+
 const languageName = {
   en: 'English',
   ja: '日本語',
@@ -19,6 +21,7 @@ const SwitchLanguage = () => (
           className="switch-language__link"
           type="button"
         >
+          <FaGlobe />
           {languageName[language]}
         </button>
       ))}

@@ -94,15 +94,19 @@ $text-muted: $gray;
 
 .switch-language__link {
   background: transparent;
-  cursor: pointer;
   border: 0;
   border-left: solid 1px $gray-light;
   color: black;
   padding: 0 0 0 1rem;
   margin-left: 1rem;
+  line-height: 1.2;
 
   &:hover {
     color: $pink;
     text-decoration: underline;
+  }
+
+  svg {
+    margin-right: 0.25rem;
   }
 }
