@@ -53,6 +53,9 @@ class Navbar extends Component {
           <Link className="navbar-item" to="/blog">
             Blog
           </Link>
+          <Link className="navbar-item" to="/work">
+            Work
+          </Link>
           <Link className="navbar-item" to="/contact">
             Contact
           </Link>
