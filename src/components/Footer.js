@@ -82,7 +82,7 @@ const Footer = class extends React.Component {
           </div>
 
           <p className="copyright small text-muted text-center">
-            {`© ${copyrightYear} Ayumi Takahashi`}
+            {`© ${copyrightYear} Ayumi.tk`}
           </p>
 
         </div>
