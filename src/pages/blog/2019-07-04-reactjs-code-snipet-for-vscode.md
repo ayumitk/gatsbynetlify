@@ -1,7 +1,7 @@
 ---
 templateKey: "blog-post"
 title: "【React】便利なスニペットVS Code"
-date: 2019-06-29T15:04:10.000Z
+date: 2019-07-04T15:04:10.000Z
 featuredpost: false
 featuredimage: /img/react-image.png
 description: Reactコードを書く上でおすすめ。

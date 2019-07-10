@@ -1,7 +1,7 @@
 ---
 templateKey: "blog-post"
 title: "【React】Airbnb謹製のデートピッカーコンポーネントを使ってみた"
-date: 2019-06-29T15:04:10.000Z
+date: 2019-07-09T15:04:10.000Z
 featuredpost: false
 featuredimage: /img/react-image.png
 description: デートピッカーのパッケージはいろいろあるけど、Airbnbのreact-datesを使ってみた。
