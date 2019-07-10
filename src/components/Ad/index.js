@@ -5,7 +5,7 @@ const Ad = () => (
   <div>
     <AdSense.Google
       client="ca-pub-2243735568608949"
-      slot="2243735568608949"
+      slot="5102061016"
       format="rectangle"
     />
   </div>
