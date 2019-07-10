@@ -1,18 +1,16 @@
 ---
 templateKey: "blog-post"
-title: "【JS】配列の中から条件に合う要素を探す"
+title: "【JS】配列(Array)の中から条件に合う要素を探す"
 date: 2019-06-25T15:04:10.000Z
 featuredpost: false
 featuredimage: /img/js-image.png
-description: 状況によって使い分ける find(), filter(), findIndex(), some() メソッドについてのメモ。
+description: 状況によって使い分ける find(), filter(), findIndex(), some() メソッドについて。
 
 tags:
   - JavaScript
   - Array
   - Tips
 ---
-
-<!-- ![js-image](/img/js-image.png) -->
 
 配列の中から特定の要素を探すとき。
 
@@ -21,11 +19,12 @@ tags:
 - findIndex()
 - some()
 
-※コード例は全てオブジェクトの配列の場合。ES2015 arrow function 使用。
+※コード例は全てオブジェクトの配列の場合。ES2015 Arrow Function で書いてます。
 
 ## find()
 
-条件に合う最初の要素を _1 つ_ 返す。無ければ `undefined` が返る。
+条件に合う最初の要素を _1 つ_ 返す。  
+無ければ `undefined` が返る。
 
 [Array.prototype.find() – JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
 
@@ -49,7 +48,8 @@ console.log(targetUser);
 
 ## filter()
 
-条件に合う要素 _全て_ を配列で返す。見つからなかったら空の配列。
+条件に合う要素 _全て_ を配列で返す。  
+見つからなかったら空の配列。
 
 [Array.prototype.filter() – JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 
@@ -76,9 +76,7 @@ console.log(targetUser);
 
 ## findIndex()
 
-条件に合う要素のインデックスが欲しい場合。
-削除したい時などでよく使う。
-削除は splice() で。
+条件に合う要素のインデックスを知りたい場合。  
 見つからなかったら -1 が返る。
 
 [Array.prototype.findIndex() – JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)

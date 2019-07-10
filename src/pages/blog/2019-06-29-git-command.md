@@ -4,14 +4,22 @@ title: "【Git】よく使うGitコマンド"
 date: 2019-06-29T15:04:10.000Z
 featuredpost: false
 featuredimage: /img/git-image.png
-description: よく使うのに忘れがちなGitコマンドをまとめてメモ。
+description: よく使うのに忘れがちなGitコマンドまとめ。
 
 tags:
   - Git
   - Tips
 ---
 
-<!-- ![git-image](/img/git-image.png) -->
+## ローカルブランチをマージ
+
+まずはマージしたいブランチへ移動。
+
+```
+$ git merge
+```
+
+---
 
 ## ローカルブランチを削除する
 

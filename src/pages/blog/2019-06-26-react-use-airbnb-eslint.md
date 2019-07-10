@@ -4,7 +4,7 @@ title: "【React】Create-react-appで、AirbnbのESLintを使う"
 date: 2019-06-26T15:04:10.000Z
 featuredpost: false
 featuredimage: /img/react-image.png
-description: Create-react-app でReactアプリケーションを作る時に、AirbnbのESlintも入れたい時のメモ。
+description: Create-react-app でReactアプリケーションを作る時に、AirbnbのESlintも入れたい場合。
 
 tags:
   - JavaScript
@@ -13,8 +13,6 @@ tags:
   - Airbnb
   - Tips
 ---
-
-<!-- ![react-image](/img/react-image.png) -->
 
 ## 1. `create-react-app` でプロジェクトを作る
 
@@ -70,6 +68,8 @@ npm i -D eslint-config-airbnb eslint-plugin-import eslint-plugin-react
 }
 ```
 
+ルールは自分に合わせて追加していこう。
+
 > 参考:  
 > [wesbos/dotfiles: Hey wes what settings do you use? - GitHub](https://github.com/wesbos/dotfiles/blob/master/.eslintrc)
 
@@ -85,7 +85,7 @@ src / serviceWorker.js
 
 ---
 
-※プロジェクトのファイル構成
+※最終的なプロジェクトのファイル構成
 
 ```json{2-3}
 my-app/

@@ -4,7 +4,7 @@ title: "【GatsbyJS】コードブロックでシンタックスをハイライ�
 date: 2019-06-27T15:04:10.000Z
 featuredpost: false
 featuredimage: /img/gatsby-image.png
-description: GatsbyJSで作ったブログの、マークダウンで書いた記事内のコードブロックは、シンタックスに色がついていた方が分かりやすいよね。
+description: GatsbyJSで作ったブログ記事内のコードブロックは、シンタックスに色がついていた方が分かりやすいよね。
 
 tags:
   - JavaScript
@@ -12,8 +12,6 @@ tags:
   - GatsbyJS
   - Tips
 ---
-
-<!-- ![gatsby-image](/img/gatsby-image.png) -->
 
 ## 1. プラグインをインストール
 
@@ -29,4 +27,10 @@ npm install --save gatsby-transformer-remark gatsby-remark-prismjs prismjs
 
 ## 2. gatsby-config.js に追記
 
+順番が重要なので注意。
+
 ## 3. スタイルを gatsby-browser.js に追記
+
+prismJS にはテーマが色々あるので、それをダウンロードして来るのが簡単です。  
+ただ、あまり好みの配色がなかったので、このブログ用に用意しました。  
+[prism.scss](https://github.com/ayumitk/gatsbynetlify/blob/master/src/styles/prism.scss)
