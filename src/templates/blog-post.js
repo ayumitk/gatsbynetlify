@@ -8,6 +8,7 @@ import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import TableOfContents from '../components/TableOfContents';
+import Ad from '../components/Ad/index';
 
 import '../styles/prism.scss';
 import '../styles/blog.scss';
@@ -36,16 +37,48 @@ export const BlogPostTemplate = ({
       {helmet || ''}
       <div className="container">
 
-        <article>
+        <div className="d-flex justify-content-between">
 
-          <header>
-            <h1 className="title">
-              {title}
-            </h1>
-            <p className="text-muted">{description}</p>
-            <div className="d-sm-flex flex-wrap">
+          <article>
+
+            <header>
+              <h1 className="title">
+                {title}
+              </h1>
+              <p className="text-muted">{description}</p>
+              <div className="d-sm-flex flex-wrap">
+                {tags && tags.length ? (
+                  <ul className="tag-list">
+                    {tags.map(tag => (
+                      <li className="tag-item" key={`${tag}tag`}>
+                        <Link className="tag-link" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+                <div className="text-muted ml-auto">
+                  <span className="mr-3">{date}</span>
+                  <Link to={`${slug}#disqus_thread`}>
+                    <CommentCount {...disqusConfig} />
+                  </Link>
+                </div>
+              </div>
+            </header>
+
+            <PreviewCompatibleImage
+              imageInfo={{
+                image: featuredimage,
+                alt: `featured image for post ${title}`,
+              }}
+            />
+
+            <TableOfContents toc={toc} />
+
+            <PostContent content={content} />
+
+            <footer>
               {tags && tags.length ? (
-                <ul className="tag-list">
+                <ul className="tag-list" style={{ marginTop: '4rem' }}>
                   {tags.map(tag => (
                     <li className="tag-item" key={`${tag}tag`}>
                       <Link className="tag-link" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
@@ -53,41 +86,20 @@ export const BlogPostTemplate = ({
                   ))}
                 </ul>
               ) : null}
-              <div className="text-muted ml-auto">
-                <span className="mr-3">{date}</span>
-                <Link to={`${slug}#disqus_thread`}>
-                  <CommentCount {...disqusConfig} />
-                </Link>
-              </div>
-            </div>
-          </header>
+            </footer>
 
-          <PreviewCompatibleImage
-            imageInfo={{
-              image: featuredimage,
-              alt: `featured image for post ${title}`,
-            }}
-          />
+            <Ad />
+            <Ad />
 
-          <TableOfContents toc={toc} />
+          </article>
 
-          <PostContent content={content} />
+          <div className="sidebar d-none d-lg-block">
+            <Ad />
+          </div>
 
-          <footer>
-            {tags && tags.length ? (
-              <ul className="tag-list" style={{ marginTop: '4rem' }}>
-                {tags.map(tag => (
-                  <li className="tag-item" key={`${tag}tag`}>
-                    <Link className="tag-link" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-          </footer>
+        </div>
 
-          <DiscussionEmbed {...disqusConfig} />
-
-        </article>
+        <DiscussionEmbed {...disqusConfig} />
 
       </div>
     </section>
