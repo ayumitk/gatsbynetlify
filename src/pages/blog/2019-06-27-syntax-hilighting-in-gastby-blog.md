@@ -1,10 +1,10 @@
 ---
 templateKey: "blog-post"
-title: "GatsbyJSのブログ記事内のコードブロックのシンタックスをハイライト表示する"
+title: "GatsbyJS製ブログ記事内のコードブロックをシンタックスハイライト表示する"
 date: 2019-06-27T15:04:10.000Z
 featuredpost: false
 featuredimage: /img/gatsby-image.png
-description: GatsbyJSで作ったブログ記事内のコードブロックは、シンタックスに色をつけたい。言語を指定し、ファイル名も表示したい。ラインもハイライトしたい。
+description: GatsbyJSで作ったブログ記事内のコードブロックは、シンタックスに色をつけたい。ファイル名も表示したい。ラインもハイライトしたい。
 
 tags:
   - JavaScript
@@ -15,12 +15,17 @@ tags:
 
 ## 最終的なイメージ
 
+技術ブログを書くにあたって、記事内にコードブロックは必須要素。  
+シンタックスハイライトされ、強調したい行自体もハイライト、さらにタイトルも表示したい。
+
 - シンタックスハイライト
 - 複数の行をハイライト
   => gatsby-remark-prismjs
 
 - コードブロックにタイトルを表示
   => gatsby-remark-code-titles
+
+プラグインが用意してあるので簡単です。
 
 ---
 
