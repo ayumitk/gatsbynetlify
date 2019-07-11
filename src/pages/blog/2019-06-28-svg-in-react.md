@@ -34,3 +34,13 @@ SVG を保存して、そのまま import したら、コンポーネントと�
 SVG はイラレから書き出したままだと余計なタグ等が含まれているので、[SVGOMG](https://jakearchibald.github.io/svgomg/)など、最適化ツールを使うといいですよ。
 
 [Adding SVGs - Create React App](https://facebook.github.io/create-react-app/docs/adding-images-fonts-and-files#adding-svgs)
+
+---
+
+## SVG のオブジェクト毎に CSS で色を変えたい場合
+
+普通の HTML/CSS の場合は、Symbol を分けるだけで、簡単でした。
+
+- [‘Reskinnable’ SVG Symbols: How to Make Them (..and Why)](https://www.sitepoint.com/reskinnable-svg-symbols-how-to-make-them-and-why/)
+
+React だとどうなるのでしょうか？
