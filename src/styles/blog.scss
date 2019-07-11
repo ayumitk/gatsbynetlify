@@ -1,6 +1,9 @@
 @import "valuables";
 
 .blog-post {
+  article {
+    flex: 1;
+  }
   hr {
     margin: 3rem 0;
     border-color: transparent;
@@ -125,4 +128,9 @@ pre code {
   &:hover {
     transform: scale(1.05);
   }
+}
+
+.sidebar {
+  width: 300px;
+  margin-left: 50px;
 }
