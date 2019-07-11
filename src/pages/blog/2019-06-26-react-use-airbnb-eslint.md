@@ -1,6 +1,6 @@
 ---
 templateKey: "blog-post"
-title: "【React】Create-react-appで、AirbnbのESLintを使う"
+title: "Create-react-appで、AirbnbのESLintを使う"
 date: 2019-06-26T15:04:10.000Z
 featuredpost: false
 featuredimage: /img/react-image.png
@@ -10,16 +10,21 @@ tags:
   - JavaScript
   - React
   - ESlint
-  - Airbnb
   - Tips
 ---
 
-## 1. `create-react-app` でプロジェクトを作る
+## 1. create-react-app でプロジェクトを作る
 
-ターミナルから [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) を実行して、プロジェクトを作り、その中に入る。
+ターミナルから [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) を実行して、プロジェクトを作る。  
+※ `my-app` 部分はお好きなプロジェクト名に変更してください。
 
 ```text:title=Terminal
 npx create-react-app my-app
+```
+
+そして、そのプロジェクトフォルダに移動する。
+
+```text:title=Terminal
 cd my-app
 ```
 
@@ -30,13 +35,13 @@ cd my-app
 
 ## 2. eslint-config-airbnb 関連のパッケージをインストール
 
-ターミナルからパッケージを devDependencies にインストール。
+ターミナルから `devDependencies` にパッケージをインストール。
 
 ```text:title=Terminal
 npm i -D eslint-config-airbnb eslint-plugin-import eslint-plugin-react
 ```
 
-インストール後、下記 3 つのパッケージが package.json 内にあるのを確認。
+インストール後、下記 3 つのパッケージが `package.json` 内にあるのを確認。
 
 ```json:title=package.json
 {
@@ -53,7 +58,7 @@ npm i -D eslint-config-airbnb eslint-plugin-import eslint-plugin-react
 
 ---
 
-## 3. `.eslintrc` ファイルを作成
+## 3. .eslintrc ファイルを作成
 
 `.eslintrc` ファイルを、プロジェクトのルートフォルダ直下に作り、下記を追加。
 
@@ -75,13 +80,18 @@ npm i -D eslint-config-airbnb eslint-plugin-import eslint-plugin-react
 
 ---
 
-## 4. `.eslintignore` ファイルを作成
+## 4. .eslintignore ファイルを作成
 
 `.eslintignore` ファイルを、プロジェクトのルートフォルダ直下に作り、下記を追加。
 
 ```json:title=.eslintignore
 src / serviceWorker.js
 ```
+
+これで完成!
+
+私はエディタは [Visual Studio Code](https://code.visualstudio.com/) を使っているので、[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) エクステンションをインストールしてます。  
+常に PROBLEMS タブで怒られつつ、保存時に自動で lint してくれるように設定しています。
 
 ---
 

@@ -42,7 +42,7 @@ class BlogRoll extends React.Component {
                       {post.frontmatter.date}
                     </p>
                   </header>
-                  <p>
+                  <p className="small">
                     {post.frontmatter.description}
                     <Link className="" to={post.fields.slug}>
                       Keep Reading →
