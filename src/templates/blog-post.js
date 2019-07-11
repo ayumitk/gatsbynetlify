@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { DiscussionEmbed, CommentCount } from 'disqus-react';
+import { Link } from 'gatsby-plugin-intl';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
@@ -72,7 +73,10 @@ export const BlogPostTemplate = ({
               }}
             />
 
-            <TableOfContents toc={toc} />
+            <TableOfContents
+              toc={toc}
+              slug={slug}
+            />
 
             <PostContent content={content} />
 

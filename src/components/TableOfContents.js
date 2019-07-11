@@ -3,13 +3,17 @@ import PropTypes from 'prop-types';
 
 class TableOfContents extends Component {
   render() {
-    const { toc } = this.props;
+    const { toc, slug } = this.props;
+
+    const regexp = new RegExp(slug, 'g');
+    const newToc = toc.replace(regexp, '');
+
     return (
       <div className="table-of-contents">
         <p>目次</p>
         <div
           className="table-of-contents__inner"
-          dangerouslySetInnerHTML={{ __html: toc }}
+          dangerouslySetInnerHTML={{ __html: newToc }}
         />
       </div>
     );
@@ -18,6 +22,7 @@ class TableOfContents extends Component {
 
 TableOfContents.propTypes = {
   toc: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
 };
 
 export default TableOfContents;
