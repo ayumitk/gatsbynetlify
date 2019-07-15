@@ -22,6 +22,9 @@ class IndexPage extends Component {
             <h3>About Me</h3>
             <p><FormattedMessage id="about_me.description" /></p>
             <p><FormattedMessage id="about_me.current" /></p>
+            <Link className="btn btn-primary" to="/about/">
+              <FormattedMessage id="read_more" />
+            </Link>
           </div>
         </section>
 
@@ -58,7 +61,7 @@ class IndexPage extends Component {
           </h3>
           <BlogRoll />
           <div className="text-center">
-            <Link className="btn btn-primary" to="/blog">
+            <Link className="btn btn-primary" to="/blog/">
               <FormattedMessage id="read_more" />
             </Link>
           </div>
