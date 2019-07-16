@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import jsonp from 'jsonp';
+import { Link } from 'gatsby-plugin-intl';
 import Layout from '../../components/Layout';
 
 
@@ -19,7 +20,7 @@ class WorkIndexPage extends Component {
       if (err) {
         console.error(err.message);
       } else {
-        // console.log(data.projects);
+        console.log(data.projects);
         this.setState({
           projects: data.projects,
         });
@@ -42,7 +43,7 @@ class WorkIndexPage extends Component {
         </div>
         <section className="container">
           {projects.map(item => (
-            <div key={item.id}>{item.name}</div>
+            <Link key={item.id} to={`/work/${item.id}/`}>{item.name}</Link>
           ))}
         </section>
       </Layout>
