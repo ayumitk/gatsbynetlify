@@ -11,7 +11,7 @@ class WorkPageTemplate extends Component {
 
   componentDidMount() {
     const { projectID } = this.props;
-    const apiKey = '5AGtA6uAQot7srZlfWYtj1kZUXSuHx0S';
+    const apiKey = process.env.GATSBY_BEHANCE_KEY;
     const behanceProjectAPI = `https://www.behance.net/v2/projects/${projectID}?api_key=${apiKey}`;
 
     // console.log(behanceProjectAPI);
