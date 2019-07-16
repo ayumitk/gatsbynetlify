@@ -1,6 +1,6 @@
 {
   "about_me": {
-    "description": "カナダ・バンクーバーに住む UI/UX Designer & Developer の高橋あゆみです。HTML, CSS/Sass, JavaScript, Adobe Creative Suite and Sketch as well as template platforms including Wordpress. My extensive experience and background in graphic design allow me to bridge the gap between design and development to create the most beautiful, and highly functional, websites and mobile apps.",
+    "description": "カナダ・バンクーバーを拠点に活動する UI/UX Designer & Developer の高橋あゆみです。ブランディングやロゴ、Webサイト、iOS/Androidアプリのデザインから、HTML, CSS, JavaScriptでのフロントエンド開発をしています。WordpressやGatsbyといったテンプレートプラットフォームのカスタマイズも。10年以上の幅広い経験を活かし、ユーザーフレンドリーで、デザインもコードも美しいWebアプリケーション制作を心がけてます。最近はReactが好き。",
     "current": "現在は、ペットと飼い主さん向けサービスを提供するTech企業で UI/UX Developer (REMOTE) として働いています。"
   },
   "read_more": "もっと見る",
@@ -10,6 +10,6 @@
     "email": "Eメール",
     "message": "メッセージ",
     "send": "送信",
-    "thanks": "なるべく早く返信しますね。よい一日を～！"
+    "thanks": "なるべく早く返信しますね！"
   }
 }

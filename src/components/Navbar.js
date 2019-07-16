@@ -47,16 +47,16 @@ class Navbar extends Component {
         <div
           className={`navbar-menu ${navBarActiveClass}`}
         >
-          <Link className="navbar-item" to="/about">
+          <Link className="navbar-item" to="/about/">
             About
           </Link>
-          <Link className="navbar-item" to="/blog">
+          <Link className="navbar-item" to="/blog/">
             Blog
           </Link>
-          <Link className="navbar-item" to="/work">
+          <Link className="navbar-item" to="/work/">
             Work
           </Link>
-          <Link className="navbar-item" to="/contact">
+          <Link className="navbar-item" to="/contact/">
             Contact
           </Link>
           <SwitchLanguage />
