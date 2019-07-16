@@ -3,6 +3,22 @@ import jsonp from 'jsonp';
 import { Link } from 'gatsby-plugin-intl';
 import Layout from '../../components/Layout';
 
+const Project = (props) => {
+  const { project } = props;
+  return (
+    <div>
+      <Link key={project.id} to={`/work/${project.id}/`}>
+        <img src={project.covers[404]} alt="project cover" />
+        <p>{project.name}</p>
+      </Link>
+      <ul>
+        {project.fields.map(field => (
+          <li key={field}>{field}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 class WorkIndexPage extends Component {
   state = {
@@ -20,7 +36,7 @@ class WorkIndexPage extends Component {
       if (err) {
         console.error(err.message);
       } else {
-        // console.log(data.projects);
+        console.log(data.projects);
         this.setState({
           projects: data.projects,
         });
@@ -42,8 +58,8 @@ class WorkIndexPage extends Component {
           </h1>
         </div>
         <section className="container">
-          {projects.map(item => (
-            <Link key={item.id} to={`/work/${item.id}/`}>{item.name}</Link>
+          {projects.map(project => (
+            <Project key={project.id} project={project} />
           ))}
         </section>
       </Layout>

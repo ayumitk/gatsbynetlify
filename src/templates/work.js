@@ -3,6 +3,25 @@ import jsonp from 'jsonp';
 import { injectIntl } from 'gatsby-plugin-intl';
 import Layout from '../components/Layout';
 
+const Module = (props) => {
+  const { module } = props;
+  return (
+    <div>
+      {
+        (() => {
+          if (module.type === 'image') {
+            return (
+              <img src={module.sizes[1400]} alt="project module" />
+            );
+          }
+          return (
+            <p>{module.text_plain}</p>
+          );
+        })()
+      }
+    </div>
+  );
+};
 
 class WorkPageTemplate extends Component {
   state = {
@@ -20,7 +39,7 @@ class WorkPageTemplate extends Component {
       if (err) {
         console.error(err.message);
       } else {
-        console.log(data.project);
+        // console.log(data.project);
         this.setState({
           project: data.project,
         });
@@ -30,9 +49,7 @@ class WorkPageTemplate extends Component {
 
   render() {
     const { project } = this.state;
-    if (project.covers) {
-      console.log(project.covers[404]);
-    }
+
     if (project.fields) {
       return (
         <div className="container">
@@ -42,7 +59,14 @@ class WorkPageTemplate extends Component {
               <li key={item}>{item}</li>
             ))}
           </ul>
-          <img src={project.covers[404]} alt="project" />
+          <ul>
+            {project.tools.map(tool => (
+              <li key={tool.id}>{tool.title}</li>
+            ))}
+          </ul>
+          {project.modules.map(module => (
+            <Module key={module.id} module={module} />
+          ))}
         </div>
       );
     }
