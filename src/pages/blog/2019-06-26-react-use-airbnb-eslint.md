@@ -1,10 +1,10 @@
 ---
 templateKey: "blog-post"
-title: "Create-react-appで、AirbnbのESLintを使う"
+title: "Create-react-appでAirbnbのESLintを使う"
 date: 2019-06-26T15:04:10.000Z
 featuredpost: false
 featuredimage: /img/react-image.png
-description: Create-react-app でReactアプリケーションを作る時に、AirbnbのESlintも入れたい場合。
+description: Create-react-app でReactアプリケーションを作る時に、AirbnbのESlintも入れたい時。
 
 tags:
   - JavaScript
@@ -13,35 +13,35 @@ tags:
   - Tips
 ---
 
-## 1. create-react-app でプロジェクトを作る
+## 1. create-react-app で新しいプロジェクトを作る
 
-ターミナルから [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) を実行して、プロジェクトを作る。  
-※ `my-app` 部分はお好きなプロジェクト名に変更してください。
+まずは、ターミナルから [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) で新しいプロジェクトを作ります。
 
 ```text:title=Terminal
 npx create-react-app my-app
 ```
 
-そして、そのプロジェクトフォルダに移動する。
+※ `my-app` 部分はお好きなプロジェクト名に変更してください。  
+※ Node >= 8.10 及び npm >= 5.6 の環境が必要です。  
+※ 一番最初の [npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) は npm 5.2 から利用できるパッケージランナーツールです。
+
+そして、作成したプロジェクトフォルダに移動します。
 
 ```text:title=Terminal
 cd my-app
 ```
 
-> 参考:  
-> [Create a New React App – React](https://reactjs.org/docs/create-a-new-react-app.html)
-
 ---
 
-## 2. eslint-config-airbnb 関連のパッケージをインストール
+## 2. Airbnb の Eslint 関連パッケージをインストール
 
-ターミナルから `devDependencies` にパッケージをインストール。
+ターミナルから `devDependencies` に Airbnb の Eslint 関連パッケージをインストールします。
 
 ```text:title=Terminal
 npm i -D eslint-config-airbnb eslint-plugin-import eslint-plugin-react
 ```
 
-インストール後、下記 3 つのパッケージが `package.json` 内にあるのを確認。
+インストール後、 `package.json` 内に下記の 3 つのパッケージが追加されているのが確認できます。
 
 ```json:title=package.json
 {
@@ -53,14 +53,14 @@ npm i -D eslint-config-airbnb eslint-plugin-import eslint-plugin-react
 }
 ```
 
-> 参考:  
-> [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
+> _参考:_  
+> [eslint-config-airbnb - GitHub](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
 
 ---
 
 ## 3. .eslintrc ファイルを作成
 
-`.eslintrc` ファイルを、プロジェクトのルートフォルダ直下に作り、下記を追加。
+`.eslintrc` ファイルを、プロジェクトのルートフォルダ直下に作り、下記を追加します。
 
 ```json:title=.eslintrc
 {
@@ -73,16 +73,16 @@ npm i -D eslint-config-airbnb eslint-plugin-import eslint-plugin-react
 }
 ```
 
-ルールは自分に合わせて追加していこう。
+ESLint のルールは自分に合わせて追加していきましょう。
 
-> 参考:  
+> _参考:_  
 > [wesbos/dotfiles: Hey wes what settings do you use? - GitHub](https://github.com/wesbos/dotfiles/blob/master/.eslintrc)
 
 ---
 
 ## 4. .eslintignore ファイルを作成
 
-`.eslintignore` ファイルを、プロジェクトのルートフォルダ直下に作り、下記を追加。
+`.eslintignore` ファイルを、プロジェクトのルートフォルダ直下に作り、下記を追加します。
 
 ```json:title=.eslintignore
 src / serviceWorker.js
@@ -90,8 +90,8 @@ src / serviceWorker.js
 
 これで完成!
 
-私はエディタは [Visual Studio Code](https://code.visualstudio.com/) を使っているので、[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) エクステンションをインストールしてます。  
-常に PROBLEMS タブで怒られつつ、保存時に自動で lint してくれるように設定しています。
+私は [Visual Studio Code](https://code.visualstudio.com/) というエディタを使っているので、[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) エクステンションもインストールして使用しています。  
+ルールに沿わないコードには赤い波線が付き、 常に PROBLEMS タブでに怒られつつ、保存時に自動で Lint してくれるように設定しているので、非常に助かります。
 
 ---
 
