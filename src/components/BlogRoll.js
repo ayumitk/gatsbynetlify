@@ -1,8 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, StaticQuery } from 'gatsby';
-import { Link } from 'gatsby-plugin-intl';
+import { Link, FormattedMessage } from 'gatsby-plugin-intl';
+import styled from 'styled-components';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
+
+
+import { Grid } from '../styles/StyledComponents';
+
+const Card = styled.article`
+  box-shadow: 8px 14px 38px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
+  background: #FFF;
+`;
+
+const CardBody = styled.div`
+  padding: 1.5rem 1.5rem 3rem 1.5rem;
+`;
+
+const Text = styled.p`
+  font-size: ${props => (props.small ? '1.4rem' : '')};
+  color: ${props => (props.gray ? props.theme.color.gray : '')};
+`;
 
 class BlogRoll extends React.Component {
   render() {
@@ -10,49 +28,39 @@ class BlogRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark;
 
     return (
-      <div className="row">
+      <Grid col="4" colGap="1.5" rowGap="1.5">
         {posts
           && posts.map(({ node: post }) => (
-            <div className="col-sm-4 col-lg-3" key={post.id}>
-              <article
-                className={`card ${
-                  post.frontmatter.featuredpost ? 'is-featured' : ''
-                }`}
-              >
-                <div className="card-body">
-                  <header>
-                    {post.frontmatter.featuredimage ? (
-                      <Link to={post.fields.slug} className="thumbnail-image">
-                        <PreviewCompatibleImage
-                          imageInfo={{
-                            image: post.frontmatter.featuredimage,
-                            alt: `featured image thumbnail for post ${
-                              post.title
-                            }`,
-                          }}
-                        />
-                      </Link>
-                    ) : null}
-                    <p className="post-meta mb-1">
-                      <Link to={post.fields.slug}>
-                        {post.frontmatter.title}
-                      </Link>
-                    </p>
-                    <p className="text-muted small mb-1">
-                      {post.frontmatter.date}
-                    </p>
-                  </header>
-                  <p>
-                    {post.frontmatter.description}
-                    <Link className="" to={post.fields.slug}>
-                      Keep Reading →
-                    </Link>
-                  </p>
-                </div>
-              </article>
-            </div>
+            <Card key={post.id}>
+              {post.frontmatter.featuredimage ? (
+                <Link to={post.fields.slug} className="thumbnail-image">
+                  <PreviewCompatibleImage
+                    imageInfo={{
+                      image: post.frontmatter.featuredimage,
+                      alt: `featured image thumbnail for post ${
+                        post.title
+                      }`,
+                    }}
+                  />
+                </Link>
+              ) : null}
+              <CardBody>
+                <Link to={post.fields.slug}>
+                  {post.frontmatter.title}
+                </Link>
+                <Text small gray>
+                  {post.frontmatter.date}
+                </Text>
+                <Text small>
+                  {post.frontmatter.description}
+                  <Link className="" to={post.fields.slug}>
+                    <FormattedMessage id="keep_reading" />
+                  </Link>
+                </Text>
+              </CardBody>
+            </Card>
           ))}
-      </div>
+      </Grid>
     );
   }
 }

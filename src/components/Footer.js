@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'gatsby-plugin-intl';
+import styled from 'styled-components';
 
 import {
   FaTwitter, FaGithub, FaDribbble, FaBehance, FaLinkedinIn,
 } from 'react-icons/fa';
+
+import { Container } from '../styles/StyledComponents';
 
 const socialAccount = [
   {
@@ -33,6 +36,11 @@ const socialAccount = [
   },
 ];
 
+const StyledFooter = styled.footer`
+  background: ${props => props.theme.color.blue800};
+  color: ${props => props.theme.color.white};
+`;
+
 // Copyright Year
 const currentDate = new Date();
 const copyrightYear = currentDate.getFullYear();
@@ -40,8 +48,8 @@ const copyrightYear = currentDate.getFullYear();
 const Footer = class extends React.Component {
   render() {
     return (
-      <footer className="footer">
-        <div className="container">
+      <StyledFooter>
+        <Container>
           <section>
             <ul className="nav-list">
               <li className="nav-item">
@@ -85,8 +93,8 @@ const Footer = class extends React.Component {
             {`© ${copyrightYear} Ayumi.tk`}
           </p>
 
-        </div>
-      </footer>
+        </Container>
+      </StyledFooter>
     );
   }
 };

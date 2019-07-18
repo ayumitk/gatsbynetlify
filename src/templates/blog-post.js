@@ -5,13 +5,19 @@ import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import { DiscussionEmbed, CommentCount } from 'disqus-react';
 import { Link } from 'gatsby-plugin-intl';
+import styled from 'styled-components';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import TableOfContents from '../components/TableOfContents';
 
 import '../styles/prism.scss';
-import '../styles/blog.scss';
+// import '../styles/blog.scss';
+
+const Container = styled.div`
+  max-width: 840px;
+  margin: 0 auto;
+`;
 
 export const BlogPostTemplate = ({
   content,
@@ -33,14 +39,14 @@ export const BlogPostTemplate = ({
   };
 
   return (
-    <section className="blog-post">
+    <Container>
       {helmet || ''}
       <div className="container">
 
         <article>
 
           <header>
-            <h1 className="title">
+            <h1 style={{ fontSize: '4rem' }}>
               {title}
             </h1>
             <p className="text-muted">{description}</p>
@@ -94,7 +100,7 @@ export const BlogPostTemplate = ({
         <DiscussionEmbed {...disqusConfig} />
 
       </div>
-    </section>
+    </Container>
   );
 };
 

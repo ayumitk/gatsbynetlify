@@ -1,14 +1,17 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { ThemeProvider } from 'styled-components';
 import Footer from './Footer';
 import Navbar from './Navbar';
-import '../styles/common.scss';
+// import '../styles/common.scss';
 import useSiteMetadata from './SiteMetadata';
+import GlobalStyle from '../styles/GlobalStyle';
+import theme from '../styles/theme';
 
-const TemplateWrapper = ({ children }) => {
+const Layout = ({ children }) => {
   const { title, description } = useSiteMetadata();
   return (
-    <div>
+    <>
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -44,11 +47,16 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:url" content="/" />
         <meta property="og:image" content="/img/og-image.jpg" />
       </Helmet>
-      <Navbar />
-      <div>{children}</div>
-      <Footer />
-    </div>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <div>
+          <Navbar />
+          {children}
+          <Footer />
+        </div>
+      </ThemeProvider>
+    </>
   );
 };
 
-export default TemplateWrapper;
+export default Layout;
