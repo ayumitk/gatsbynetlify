@@ -4,7 +4,7 @@ title: "Gatsby製のブログに目次を追加する"
 date: 2019-07-11T15:04:10.000Z
 featuredpost: false
 featuredimage: /img/gatsby-image.png
-description: プラグインなして簡単に追加できます。
+description: プラグインなしで簡単に追加できます
 
 tags:
   - JavaScript

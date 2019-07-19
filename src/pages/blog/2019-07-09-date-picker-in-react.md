@@ -1,6 +1,6 @@
 ---
 templateKey: "blog-post"
-title: "【React】Airbnb製のデートピッカーコンポーネントを使ってみた"
+title: "ReactアプリでAirbnb製のデートピッカーコンポーネントを使ってみた"
 date: 2019-07-09T15:04:10.000Z
 featuredpost: false
 featuredimage: /img/react-image.png
@@ -66,12 +66,9 @@ bd-app/
        ├── Components/
        │      └── BDlist.js  <= 追加
        │      └── BDrow.js   <= 追加
-       ├── App.css
+       ├── App.scss
        ├── App.js
-       ├── App.test.js
-       ├── index.css
-       ├── index.js
-       └── logo.svg
+       └── index.js
 ```
 
 ---
@@ -126,17 +123,17 @@ import 'react-dates/lib/css/_datepicker.css';
 
 Row の方に state を作る。
 
-```
+```javascript
 state = {
-  date : null,
-}
+  date: null
+};
 ```
 
 ---
 
 ## SingleDatePicker コンポーネント設置
 
-```
+```javascript
 <SingleDatePicker
   date={this.state.date} // momentPropTypes.momentObj or null
   onDateChange={date => this.setState({ date })} // PropTypes.func.isRequired
@@ -156,20 +153,16 @@ state = {
 デベロッパーツールを見てもらうと分かるんですが、取得できる日付データは momentJS 仕様。
 このままだと Firebase に登録できなかったので、フォーマットしなおします。
 
-```
+```javascript
 date.format();
 ```
 
 もちろん、SingleDatePicker にデータを送るときは、momentJS でフォーマットしなおす必要あり。
 
-```
-import moment from 'moment';
+```javascript
+import moment from "moment";
 
 moment(date);
 ```
 
 [カレンダー UI を実装する React component](http://yuw27b.hatenablog.com/entry/2018/10/04/231748)
-
-```
-
-```

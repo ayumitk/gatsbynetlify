@@ -1,6 +1,6 @@
 ---
 templateKey: "blog-post"
-title: "【React】SVGアイコンをReact App内で使う"
+title: "SVGアイコンをReactアプリ内で使う"
 date: 2019-06-28T15:04:10.000Z
 featuredpost: false
 featuredimage: /img/react-image.png
