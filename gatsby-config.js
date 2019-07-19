@@ -100,6 +100,22 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-styled-components',
+    {
+      resolve: 'gatsby-plugin-prefetch-google-fonts',
+      options: {
+        fonts: [
+          {
+            family: 'Nunito Sans',
+            variants: ['200', '300', '400', '600', '700', '800', '900'],
+          },
+          {
+            family: 'Montserrat',
+            variants: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+          },
+        ],
+      },
+    },
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
