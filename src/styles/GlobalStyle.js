@@ -54,8 +54,18 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.25;
     margin: 0;
     padding: 0;
-    /* font-family: 'Nunito Sans', "nsjp", sans-serif; */
     font-weight: 700;
+  }
+
+  h1{
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 2.8rem;
+  }
+  h3 {
+    font-size: 2rem;
   }
 
   a{

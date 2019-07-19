@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import { DiscussionEmbed, CommentCount } from 'disqus-react';
+import { DiscussionEmbed } from 'disqus-react';
 import { Link } from 'gatsby-plugin-intl';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
@@ -32,10 +32,6 @@ const Date = styled.p`
   margin-bottom: 0.5rem;
 `;
 
-const Title = styled.h1`
-  font-size: 4rem;
-`;
-
 const Description = styled.p`
   color: ${props => props.theme.color.gray500};
   margin: 1.5rem 0;
@@ -50,12 +46,10 @@ const PostContentWrapper = styled.div`
     margin-bottom: 2rem;
     padding-bottom: 1rem;
     border-bottom: solid 1px ${props => props.theme.color.gray300};
-    font-size: 2.8rem;
   }
   h3 {
     color: ${props => props.theme.color.pink500};
     margin-bottom: 1rem;
-    font-size: 2rem;
   }
   p + p {
     margin-top: 1.5em;
@@ -121,7 +115,7 @@ export const BlogPostTemplate = ({
 
         <Header>
           <Date>{date}</Date>
-          <Title>{title}</Title>
+          <h1>{title}</h1>
           <Description>{description}</Description>
         </Header>
 
