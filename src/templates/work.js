@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import jsonp from 'jsonp';
 import { injectIntl } from 'gatsby-plugin-intl';
+import styled from 'styled-components';
 import Layout from '../components/Layout';
+
+import { Container } from '../styles/StyledComponents';
+
+const ProjectContent = styled.div`
+  img{
+    width: 100%;
+  }
+`;
 
 const Module = (props) => {
   const { module } = props;
@@ -52,27 +61,33 @@ class WorkPageTemplate extends Component {
 
     if (project.fields) {
       return (
-        <div className="container">
-          <h1>{project.name}</h1>
-          <ul>
-            {project.fields.map(item => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <ul>
-            {project.tools.map(tool => (
-              <li key={tool.id}>{tool.title}</li>
-            ))}
-          </ul>
-          {project.modules.map(module => (
-            <Module key={module.id} module={module} />
-          ))}
-        </div>
+        <Container>
+          <article>
+            <header>
+              <h1>{project.name}</h1>
+              <ul>
+                {project.fields.map(item => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <ul>
+                {project.tools.map(tool => (
+                  <li key={tool.id}>{tool.title}</li>
+                ))}
+              </ul>
+            </header>
+            <ProjectContent>
+              {project.modules.map(module => (
+                <Module key={module.id} module={module} />
+              ))}
+            </ProjectContent>
+          </article>
+        </Container>
       );
     }
 
     return (
-      <div className="container">loading...</div>
+      <div style={{ textAlign: 'center' }}>loading...</div>
     );
   }
 }

@@ -1,37 +1,76 @@
 import React from 'react';
 import { Link } from 'gatsby-plugin-intl';
+import styled from 'styled-components';
 
-import {
-  FaTwitter, FaGithub, FaDribbble, FaBehance, FaLinkedinIn,
-} from 'react-icons/fa';
+import { Twitter } from 'styled-icons/fa-brands/Twitter';
+import { Github } from 'styled-icons/fa-brands/Github';
+import { Dribbble } from 'styled-icons/fa-brands/Dribbble';
+import { Behance } from 'styled-icons/fa-brands/Behance';
+import { LinkedinIn } from 'styled-icons/fa-brands/LinkedinIn';
+
+import { Container } from '../styles/StyledComponents';
 
 const socialAccount = [
   {
     name: 'Twitter',
     url: 'https://twitter.com/ayumitk__',
-    icon: <FaTwitter />,
+    icon: <Twitter />,
   },
   {
     name: 'Github',
     url: 'https://github.com/ayumitk',
-    icon: <FaGithub />,
+    icon: <Github />,
   },
   {
     name: 'Dribbble',
     url: 'https://dribbble.com/ayumitk',
-    icon: <FaDribbble />,
+    icon: <Dribbble />,
   },
   {
     name: 'Behance',
     url: 'https://www.behance.net/ayumitk',
-    icon: <FaBehance />,
+    icon: <Behance />,
   },
   {
     name: 'Linkedin',
     url: 'https://www.linkedin.com/in/ayumi-takahashi-951831a9',
-    icon: <FaLinkedinIn />,
+    icon: <LinkedinIn />,
   },
 ];
+
+const StyledFooter = styled.footer`
+  background: ${props => props.theme.color.blue800};
+  color: ${props => props.theme.color.gray400};
+  padding: 3rem 0;
+  margin-top: 10rem;
+`;
+
+const FooterLink = styled(Link)`
+  color: ${props => props.theme.color.gray400};
+  display: inline-block;
+  margin: 0.75rem;
+  &:hover{
+    color: #FFF;
+  }
+`;
+
+const SocialNav = styled.a`
+  background: ${props => props.theme.color.gray400};
+  color: ${props => props.theme.color.blue800};
+  border-radius: 100%;
+  display: inline-block;
+  line-height: 0;
+  padding: 1rem;
+  margin: 0.5rem;
+  &:hover{
+    background: #FFF;
+    color: ${props => props.theme.color.blue800};
+  }
+  svg{
+    width:1.8rem;
+    height:1.8rem;
+  }
+`;
 
 // Copyright Year
 const currentDate = new Date();
@@ -40,53 +79,41 @@ const copyrightYear = currentDate.getFullYear();
 const Footer = class extends React.Component {
   render() {
     return (
-      <footer className="footer">
-        <div className="container">
-          <section>
-            <ul className="nav-list">
-              <li className="nav-item">
-                <Link className="nav-link" to="/">
-                        Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/about/">
-                        About
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/blog/">
-                        Blog
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/work/">
-                        Work
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/contact/">
-                        Contact
-                </Link>
-              </li>
-            </ul>
-          </section>
+      <StyledFooter>
+        <Container style={{ textAlign: 'center' }}>
 
+          <nav>
+            <FooterLink to="/">
+              Home
+            </FooterLink>
+            <FooterLink to="/about/">
+              About
+            </FooterLink>
+            <FooterLink to="/blog/">
+              Blog
+            </FooterLink>
+            <FooterLink to="/work/">
+              Work
+            </FooterLink>
+            <FooterLink to="/contact/">
+              Contact
+            </FooterLink>
+          </nav>
 
-          <div className="social-nav mb-3">
+          <nav style={{ margin: '2rem 0' }}>
             {socialAccount.map(item => (
-              <a title={item.name} className="social-link" href={item.url} target="_blank" key={item.name}>
+              <SocialNav title={item.name} href={item.url} target="_blank" key={item.name}>
                 {item.icon}
-              </a>
+              </SocialNav>
             ))}
-          </div>
+          </nav>
 
-          <p className="copyright small text-muted text-center">
+          <p style={{ fontSize: '1.4rem' }}>
             {`© ${copyrightYear} Ayumi.tk`}
           </p>
 
-        </div>
-      </footer>
+        </Container>
+      </StyledFooter>
     );
   }
 };
