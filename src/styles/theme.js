@@ -1,5 +1,5 @@
 const theme = {
-  maxWith: '1140px',
+  maxWith: '1100px',
   color: {
     pink500: '#ce2573',
     blue500: '#486ab7',

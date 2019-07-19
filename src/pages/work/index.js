@@ -3,6 +3,7 @@ import jsonp from 'jsonp';
 import { Link } from 'gatsby-plugin-intl';
 import Layout from '../../components/Layout';
 
+import { Container } from '../../styles/StyledComponents';
 
 class WorkIndexPage extends Component {
   state = {
@@ -32,20 +33,14 @@ class WorkIndexPage extends Component {
     const { projects } = this.state;
     return (
       <Layout>
-        <div
-          className="mb-4"
-        >
-          <h1
-            className="container"
-          >
+        <Container>
+          <h1>
             Work
           </h1>
-        </div>
-        <section className="container">
           {projects.map(item => (
             <Link key={item.id} to={`/work/${item.id}/`}>{item.name}</Link>
           ))}
-        </section>
+        </Container>
       </Layout>
     );
   }

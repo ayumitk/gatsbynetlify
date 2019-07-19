@@ -22,6 +22,13 @@ const Text = styled.p`
   color: ${props => (props.gray ? props.theme.color.gray : '')};
 `;
 
+const BlogTitle = styled.h2`
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  line-height: 1.25;
+  font-weight: 600;
+`;
+
 class BlogRoll extends React.Component {
   render() {
     const { data } = this.props;
@@ -46,7 +53,7 @@ class BlogRoll extends React.Component {
               ) : null}
               <CardBody>
                 <Link to={post.fields.slug}>
-                  {post.frontmatter.title}
+                  <BlogTitle>{post.frontmatter.title}</BlogTitle>
                 </Link>
                 <Text small gray>
                   {post.frontmatter.date}

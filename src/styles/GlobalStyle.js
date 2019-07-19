@@ -40,7 +40,6 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.6;
     color: ${theme.color.black};
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "nsjp", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    /* font-family: -apple-system, BlinkMacSystemFont, "nsjp", "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
   }
 
   p, ul, ol, li{
@@ -53,6 +52,8 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.25;
     margin: 0;
     padding: 0;
+    font-family: 'Nunito Sans', "nsjp", sans-serif;
+    font-weight: 900;
   }
 
   a{

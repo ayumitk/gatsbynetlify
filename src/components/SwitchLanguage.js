@@ -11,7 +11,7 @@ const languageName = {
 const Button = styled.button`
   background: transparent;
   border: 0;
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
     padding: 0;
     color: ${props => props.theme.color.black};
     &:hover{
@@ -19,7 +19,7 @@ const Button = styled.button`
       opacity: 0.8;
     }
   }
-  @media (max-width: 991.98px) {
+  @media (max-width: 767.98px) {
     display: none;
     color: #FFF;
     width: 100%;

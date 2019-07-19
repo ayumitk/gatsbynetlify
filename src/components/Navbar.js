@@ -3,30 +3,34 @@ import { Link } from 'gatsby-plugin-intl';
 import styled from 'styled-components';
 import SwitchLanguage from './SwitchLanguage';
 
-const Header = styled.div`
+import { Container } from '../styles/StyledComponents';
+
+const Header = styled(Container)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: ${props => props.theme.maxWith};
-  margin: 0 auto;
-  width: 100%;
   height: 64px;
 `;
 
 const Logo = styled(Link)`
   color: ${props => props.theme.color.pink500};
   text-decoration:none;
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 3.5rem;
+  letter-spacing: -0.06rem;
+  font-weight: 900;
+  font-family: 'Nunito Sans', "nsjp", sans-serif;
   &:hover{
     color: ${props => props.theme.color.pink500};
     text-decoration:none;
     opacity: 0.8;
   }
+  span{
+    font-size: 2rem;
+  }
 `;
 
 const HamburgerButton = styled.button`
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
     display:none;
   }
   width: 25px;
@@ -74,16 +78,16 @@ const HamburgerButton = styled.button`
 `;
 
 const Nav = styled.div`
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
     display: flex;
   }
-  @media (max-width: 991.98px) {
+  @media (max-width: 767.98px) {
     display: none;
   }
   a{
     color: ${props => props.theme.color.black};
     display: block;
-    @media (min-width: 992px) {
+    @media (min-width: 768px) {
       margin-right: 2rem;
     }
     &:hover{
@@ -132,7 +136,10 @@ class Navbar extends Component {
     return (
       <Header>
 
-        <Logo to="/" title="Logo">Ayumi.tk</Logo>
+        <Logo to="/" title="Logo">
+Ayumi
+<span>.tk</span>
+</Logo>
 
         <HamburgerButton
           className={isActive ? 'active' : ''}

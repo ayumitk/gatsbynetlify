@@ -39,6 +39,30 @@ const socialAccount = [
 const StyledFooter = styled.footer`
   background: ${props => props.theme.color.blue800};
   color: ${props => props.theme.color.white};
+  padding: 3rem 0;
+`;
+
+const FooterLink = styled(Link)`
+  color: ${props => props.theme.color.white};
+  display: inline-block;
+  margin: 0.75rem;
+  &:hover{
+    color: #FFF;
+  }
+`;
+
+const SocialNav = styled.a`
+  background: ${props => props.theme.color.white};
+  color: ${props => props.theme.color.blue800};
+  border-radius: 100%;
+  display: inline-block;
+  line-height: 0;
+  padding: 1rem;
+  margin: 0.5rem;
+  &:hover{
+    background: #FFF;
+    color: ${props => props.theme.color.blue800};
+  }
 `;
 
 // Copyright Year
@@ -49,47 +73,35 @@ const Footer = class extends React.Component {
   render() {
     return (
       <StyledFooter>
-        <Container>
-          <section>
-            <ul className="nav-list">
-              <li className="nav-item">
-                <Link className="nav-link" to="/">
-                        Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/about/">
-                        About
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/blog/">
-                        Blog
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/work/">
-                        Work
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/contact/">
-                        Contact
-                </Link>
-              </li>
-            </ul>
-          </section>
+        <Container style={{ textAlign: 'center' }}>
 
+          <nav>
+            <FooterLink to="/">
+              Home
+            </FooterLink>
+            <FooterLink to="/about/">
+              About
+            </FooterLink>
+            <FooterLink to="/blog/">
+              Blog
+            </FooterLink>
+            <FooterLink to="/work/">
+              Work
+            </FooterLink>
+            <FooterLink to="/contact/">
+              Contact
+            </FooterLink>
+          </nav>
 
-          <div className="social-nav mb-3">
+          <nav style={{ margin: '2rem 0' }}>
             {socialAccount.map(item => (
-              <a title={item.name} className="social-link" href={item.url} target="_blank" key={item.name}>
+              <SocialNav title={item.name} className="social-link" href={item.url} target="_blank" key={item.name}>
                 {item.icon}
-              </a>
+              </SocialNav>
             ))}
-          </div>
+          </nav>
 
-          <p className="copyright small text-muted text-center">
+          <p style={{ fontSize: '1.4rem' }}>
             {`© ${copyrightYear} Ayumi.tk`}
           </p>
 

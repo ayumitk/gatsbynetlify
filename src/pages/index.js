@@ -22,8 +22,10 @@ const Hero = styled.div`
     font-size: 5rem;
     span{
       font-weight: 400;
-      font-size: 2.5rem;
+      font-size: 1.4rem;
+      text-transform: uppercase;
       display: block;
+      letter-spacing: 0.3rem;
     }
   }
 `;
@@ -31,7 +33,7 @@ const Hero = styled.div`
 const AboutMe = styled.div`
   background: #374054;
   color: #FFF;
-  padding: 3rem 0;
+  padding: 50px 0 150px 0;
   p{
     margin-bottom: 1.5rem;
   }
@@ -57,6 +59,13 @@ const LinkButton = styled(Link)`
   }
 `;
 
+const Skill = styled(Container)`
+  padding: 50px 0;
+  margin-top: -100px !important;
+  border-radius: 10px;
+  background: #FFF;
+`;
+
 class IndexPage extends Component {
   render() {
     return (
@@ -80,7 +89,7 @@ class IndexPage extends Component {
           </Container>
         </AboutMe>
 
-        <Container>
+        <Skill>
           <Grid col="2">
             <Box textAlign="center">
               <DesignIcon style={{ width: '10rem', height: '10rem' }} />
@@ -107,7 +116,7 @@ class IndexPage extends Component {
               <ArrowAltCircleRight />
             </LinkButton>
           </Box>
-        </Container>
+        </Skill>
 
         <Container>
           <h2>Tips</h2>

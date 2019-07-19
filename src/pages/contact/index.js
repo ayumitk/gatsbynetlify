@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { injectIntl, FormattedMessage, navigate } from 'gatsby-plugin-intl';
 import Layout from '../../components/Layout';
 
+import { Container } from '../../styles/StyledComponents';
+
 function encode(data) {
   return Object.keys(data)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
@@ -35,7 +37,7 @@ class Index extends Component {
   render() {
     return (
       <Layout>
-        <section className="container">
+        <Container>
           <h1>Contact</h1>
           <form
             name="contact"
@@ -103,7 +105,7 @@ class Index extends Component {
             </div>
 
           </form>
-        </section>
+        </Container>
       </Layout>
     );
   }

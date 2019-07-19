@@ -14,9 +14,15 @@ import TableOfContents from '../components/TableOfContents';
 import '../styles/prism.scss';
 // import '../styles/blog.scss';
 
-const Container = styled.div`
+import { Container } from '../styles/StyledComponents';
+
+const BlogContainer = styled(Container)`
   max-width: 840px;
-  margin: 0 auto;
+`;
+
+const BlogTitle = styled.h1`
+  font-size: 4rem;
+  font-weight: 600;
 `;
 
 export const BlogPostTemplate = ({
@@ -39,16 +45,16 @@ export const BlogPostTemplate = ({
   };
 
   return (
-    <Container>
+    <BlogContainer>
       {helmet || ''}
       <div className="container">
 
         <article>
 
           <header>
-            <h1 style={{ fontSize: '4rem' }}>
+            <BlogTitle>
               {title}
-            </h1>
+            </BlogTitle>
             <p className="text-muted">{description}</p>
             <div className="d-sm-flex flex-wrap">
               {tags && tags.length ? (
@@ -100,7 +106,7 @@ export const BlogPostTemplate = ({
         <DiscussionEmbed {...disqusConfig} />
 
       </div>
-    </Container>
+    </BlogContainer>
   );
 };
 
