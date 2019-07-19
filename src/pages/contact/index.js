@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { injectIntl, FormattedMessage, navigate } from 'gatsby-plugin-intl';
 import Layout from '../../components/Layout';
 
+import {
+  Container, Input, Label, Textarea, Button,
+} from '../../styles/StyledComponents';
+
 function encode(data) {
   return Object.keys(data)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
@@ -35,7 +39,7 @@ class Index extends Component {
   render() {
     return (
       <Layout>
-        <section className="container">
+        <Container>
           <h1>Contact</h1>
           <form
             name="contact"
@@ -55,55 +59,47 @@ class Index extends Component {
               </label>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="name">
-                <FormattedMessage id="contact.name" />
-                <input
-                  className="form-control"
-                  type="text"
-                  name="name"
-                  onChange={this.handleChange}
-                  id="name"
-                  required
-                />
-              </label>
-            </div>
+            <Label htmlFor="name">
+              <FormattedMessage id="contact.name" />
+              <Input
+                type="text"
+                name="name"
+                onChange={this.handleChange}
+                id="name"
+                required
+              />
+            </Label>
 
-            <div className="form-group">
-              <label htmlFor="email">
-                <FormattedMessage id="contact.email" />
-                <input
-                  className="form-control"
-                  type="email"
-                  name="email"
-                  onChange={this.handleChange}
-                  id="email"
-                  required
-                />
-              </label>
-            </div>
+            <Label htmlFor="email">
+              <FormattedMessage id="contact.email" />
+              <Input
+                type="email"
+                name="email"
+                onChange={this.handleChange}
+                id="email"
+                required
+              />
+            </Label>
 
-            <div className="form-group">
-              <label htmlFor="message">
-                <FormattedMessage id="contact.message" />
-                <textarea
-                  className="form-control"
-                  name="message"
-                  onChange={this.handleChange}
-                  id="message"
-                  required
-                />
-              </label>
-            </div>
+            <Label htmlFor="message">
+              <FormattedMessage id="contact.message" />
+              <Textarea
+                rows="5"
+                name="message"
+                onChange={this.handleChange}
+                id="message"
+                required
+              />
+            </Label>
 
-            <div className="form-group">
-              <button className="btn btn-primary" type="submit">
+            <div style={{ textAlign: 'center' }}>
+              <Button type="submit" style={{ textTransform: 'uppercase', width: '200px' }}>
                 <FormattedMessage id="contact.send" />
-              </button>
+              </Button>
             </div>
 
           </form>
-        </section>
+        </Container>
       </Layout>
     );
   }
