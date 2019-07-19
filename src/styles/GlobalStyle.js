@@ -13,14 +13,14 @@ const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: "nsjp";
     font-style: normal;
-    font-weight: 600;
+    font-weight: 700;
     src: url("../../font/nsjpb.woff") format("woff");
   }
 
   @font-face {
     font-family: "nsjp";
     font-style: normal;
-    font-weight: 800;
+    font-weight: 900;
     src: url("../../font/nsjpbl.woff") format("woff");
   }
 
@@ -39,7 +39,9 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.8rem;
     line-height: 1.6;
     color: ${theme.color.black};
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "nsjp", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "nsjp", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "nsjp", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 400;
   }
 
   p, ul, ol, li{
@@ -52,8 +54,8 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.25;
     margin: 0;
     padding: 0;
-    font-family: 'Nunito Sans', "nsjp", sans-serif;
-    font-weight: 900;
+    /* font-family: 'Nunito Sans', "nsjp", sans-serif; */
+    font-weight: 700;
   }
 
   a{
@@ -65,12 +67,16 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  button{
+  button, input, textarea{
     line-height: 1.6;
     font-size: 1.8rem;
     font-weight: 400;
+  }
+
+  button{
     cursor: pointer;
     text-align: center;
+    border:0;
   }
 `;
 

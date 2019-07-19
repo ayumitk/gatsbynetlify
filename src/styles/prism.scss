@@ -141,3 +141,18 @@ pre[class*="language-"] {
   padding-left: 0.75em;
   border-left: 0.25em solid #77a8d999;
 }
+
+/* gatsby-remark-code-titles */
+.gatsby-code-title {
+  background: #4b5461fd;
+  color: #cbccc6;
+  margin-bottom: -0.65em;
+  padding: 0.7rem 1.05rem;
+  font-size: 0.8em;
+  line-height: 0.2;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono,
+    Courier New, monospace;
+  font-weight: 600;
+  border-radius: 4px 4px 0 0;
+  display: table;
+}

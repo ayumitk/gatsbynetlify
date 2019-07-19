@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { IntlContextConsumer, changeLocale } from 'gatsby-plugin-intl';
 import styled from 'styled-components';
-import { FaGlobe } from 'react-icons/fa';
+import LanguageIcon from '../img/language.svg';
 
 const languageName = {
   en: 'English',
@@ -10,10 +10,10 @@ const languageName = {
 
 const Button = styled.button`
   background: transparent;
-  border: 0;
   @media (min-width: 768px) {
-    padding: 0;
+    padding: 0 0 0 1rem;
     color: ${props => props.theme.color.black};
+    border-left: solid 1px #ccc;
     &:hover{
       text-decoration: underline;
       opacity: 0.8;
@@ -25,6 +25,13 @@ const Button = styled.button`
     width: 100%;
     padding: 1.5rem;
   }
+`;
+
+const StyledLanguageIcon = styled(LanguageIcon)`
+  vertical-align: text-top;
+  margin-right: 0.25rem;
+  width:2rem;
+  height: 2rem;
 `;
 
 class SwitchLanguage extends Component {
@@ -41,7 +48,7 @@ class SwitchLanguage extends Component {
             className="switch-language__link"
             type="button"
           >
-            <FaGlobe style={{ verticalAlign: 'text-top', marginRight: '0.5rem' }} />
+            <StyledLanguageIcon />
             {languageName[language]}
           </Button>
         ))}

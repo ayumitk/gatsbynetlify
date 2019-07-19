@@ -138,8 +138,8 @@ class Navbar extends Component {
 
         <Logo to="/" title="Logo">
 Ayumi
-<span>.tk</span>
-</Logo>
+          <span>.tk</span>
+                </Logo>
 
         <HamburgerButton
           className={isActive ? 'active' : ''}

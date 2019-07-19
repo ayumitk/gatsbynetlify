@@ -8,7 +8,7 @@ class Thanks extends Component {
   render() {
     return (
       <Layout>
-        <Container>
+        <Container style={{ textAlign: 'center', paddingTop: '10rem' }}>
           <h1>Thank you!</h1>
           <p><FormattedMessage id="contact.thanks" /></p>
         </Container>

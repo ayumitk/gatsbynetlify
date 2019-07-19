@@ -26,8 +26,54 @@ const Container = styled.div`
   }
 `;
 
-const Box = styled.div`
-  text-align: ${props => ((props.textAlign === 'center') ? 'center' : '')};
+const Input = styled.input`
+  width: 100%;
+  display:block;
+  padding: .375rem .75rem;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 `;
 
-export { Grid, Container, Box };
+const Label = styled.label`
+  margin-bottom: 1.5rem;
+  display: block;
+  span{
+    display: inline-block;
+    margin-bottom: .5rem;
+  }
+`;
+
+const Textarea = styled.textarea`
+  width: 100%;
+  display:block;
+  padding: .375rem .75rem;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+`;
+
+const Button = styled.button`
+  background: ${props => props.theme.color.pink500};
+  padding: 12px 24px;
+  border-radius: 96px;
+  display: inline-block;
+  color: #FFF;
+  text-decoration: none;
+  &:hover{
+    opacity: 0.9;
+    text-decoration: none;
+    color: #FFF;
+  }
+`;
+
+
+export {
+  Grid, Container, Input, Label, Textarea, Button,
+};
