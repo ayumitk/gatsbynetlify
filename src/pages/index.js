@@ -5,11 +5,9 @@ import { ArrowAltCircleRight } from 'styled-icons/fa-regular/ArrowAltCircleRight
 import Layout from '../components/Layout';
 import BlogRoll from '../components/BlogRoll';
 import WorkRoll from '../components/WorkRoll';
+import SkillSet from '../components/SkillSet';
 
-import DesignIcon from '../img/design.svg';
-import DevIcon from '../img/dev.svg';
-
-import { Grid, Container } from '../styles/StyledComponents';
+import { Container } from '../styles/StyledComponents';
 
 
 const Hero = styled.div`
@@ -60,13 +58,6 @@ const LinkButton = styled(Link)`
   }
 `;
 
-const Skill = styled(Container)`
-  padding: 50px 0;
-  margin-top: -100px !important;
-  border-radius: 10px;
-  background: #FFF;
-`;
-
 class IndexPage extends Component {
   render() {
     return (
@@ -84,45 +75,24 @@ class IndexPage extends Component {
 
         <AboutMe>
           <Container>
-            <h2>About Me</h2>
+            <h2 style={{ marginBottom: '1.5rem' }}>About Me</h2>
             <p><FormattedMessage id="about_me.description" /></p>
             <p><FormattedMessage id="about_me.current" /></p>
           </Container>
         </AboutMe>
 
-        <Skill>
-          <Grid col="2">
-            <div style={{ textAlign: 'center' }}>
-              <DesignIcon style={{ width: '10rem', height: '10rem' }} />
-              <h2><FormattedMessage id="skill.design.title" /></h2>
-              <p><FormattedMessage id="skill.design.description" /></p>
-              <h3><FormattedMessage id="skill.design.what-i-do.title" /></h3>
-              <p><FormattedMessage id="skill.design.what-i-do.list" /></p>
-              <h3><FormattedMessage id="skill.design.tools.title" /></h3>
-              <p><FormattedMessage id="skill.design.tools.list" /></p>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-              <DevIcon style={{ width: '10rem', height: '10rem' }} />
-              <h2><FormattedMessage id="skill.dev.title" /></h2>
-              <p><FormattedMessage id="skill.dev.description" /></p>
-              <h3><FormattedMessage id="skill.dev.languages.title" /></h3>
-              <p><FormattedMessage id="skill.dev.languages.list" /></p>
-              <h3><FormattedMessage id="skill.dev.tools.title" /></h3>
-              <p><FormattedMessage id="skill.dev.tools.list" /></p>
-            </div>
-          </Grid>
-          <div style={{ textAlign: 'center' }}>
-            <LinkButton to="/about/">
-              <FormattedMessage id="read_more" />
-              <ArrowAltCircleRight />
-            </LinkButton>
-          </div>
-        </Skill>
+        <SkillSet />
+        <div style={{ textAlign: 'center', marginBottom: '10rem' }}>
+          <LinkButton to="/about/">
+            <FormattedMessage id="read_more" />
+            <ArrowAltCircleRight />
+          </LinkButton>
+        </div>
 
         <Container>
-          <h2>Tips</h2>
+          <h2 style={{ marginBottom: '1.5rem' }}>Tips</h2>
           <BlogRoll />
-          <div style={{ textAlign: 'center' }}>
+          <div style={{ textAlign: 'center', marginBottom: '10rem' }}>
             <LinkButton to="/blog/">
               <FormattedMessage id="read_more" />
               <ArrowAltCircleRight />
@@ -131,7 +101,7 @@ class IndexPage extends Component {
         </Container>
 
         <Container>
-          <h2>Work</h2>
+          <h2 style={{ marginBottom: '1.5rem' }}>Work</h2>
           <WorkRoll />
           <div style={{ textAlign: 'center' }}>
             <LinkButton to="/work/">

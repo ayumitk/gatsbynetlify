@@ -18,14 +18,20 @@ const Logo = styled(Link)`
   font-size: 3.5rem;
   letter-spacing: -0.06rem;
   font-weight: 900;
-  font-family: 'Nunito Sans', "nsjp", sans-serif;
+  line-height: 1;
+  text-align: right;
+  /* font-family: 'Nunito Sans', "nsjp", sans-serif; */
   &:hover{
     color: ${props => props.theme.color.pink500};
     text-decoration:none;
     opacity: 0.8;
   }
   span{
-    font-size: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.14rem;
+    display: block;
+    text-transform: uppercase;
   }
 `;
 
@@ -138,8 +144,8 @@ class Navbar extends Component {
 
         <Logo to="/" title="Logo">
 Ayumi
-          <span>.tk</span>
-                </Logo>
+          <span>Takahashi</span>
+        </Logo>
 
         <HamburgerButton
           className={isActive ? 'active' : ''}
