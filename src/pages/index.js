@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { ArrowAltCircleRight } from 'styled-icons/fa-regular/ArrowAltCircleRight';
 import Layout from '../components/Layout';
 import BlogRoll from '../components/BlogRoll';
+import WorkRoll from '../components/WorkRoll';
 
 import DesignIcon from '../img/design.svg';
 import DevIcon from '../img/dev.svg';
@@ -123,6 +124,17 @@ class IndexPage extends Component {
           <BlogRoll />
           <div style={{ textAlign: 'center' }}>
             <LinkButton to="/blog/">
+              <FormattedMessage id="read_more" />
+              <ArrowAltCircleRight />
+            </LinkButton>
+          </div>
+        </Container>
+
+        <Container>
+          <h2>Work</h2>
+          <WorkRoll />
+          <div style={{ textAlign: 'center' }}>
+            <LinkButton to="/work/">
               <FormattedMessage id="read_more" />
               <ArrowAltCircleRight />
             </LinkButton>
